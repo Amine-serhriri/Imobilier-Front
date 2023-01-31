@@ -1,0 +1,34 @@
+{
+  "immobilier": [
+    {
+      "id": 1,
+      "title": "maison",
+      "description": "xxxxxxxxxxxxxxx",
+      "status": true
+    },
+    {
+      "id": 2,
+      "title": "maison 2 ",
+      "description": "xxx",
+      "status": false
+    },
+    {
+      "id": 3,
+      "title": "maison 3",
+      "description": "xxxxxx",
+      "status": true
+    }
+  ],
+  "feedback": [
+    {
+      "firstname": "fffffffffffff",
+      "lastname": "ffffffffffffff",
+      "telnum": "60500000",
+      "email": "amineyassir2001@gmail.com",
+      "agree": null,
+      "contacttype": null,
+      "message": "ffffffffffffffffffffff",
+      "id": 1
+    }
+  ]
+}

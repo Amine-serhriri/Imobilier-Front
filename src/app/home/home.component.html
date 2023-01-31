@@ -1,0 +1,37 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Dashboard</h1>
+  <ng-container *ngIf="cards$ |async  as result" [ngSwitch]="result.dataState" >
+    <ng-container *ngSwitchCase="DataStateEnum.LOADING">
+          Loading................
+    </ng-container>
+
+    <ng-container *ngSwitchCase="DataStateEnum.ERROR">
+          ERROR
+    </ng-container>
+
+    <ng-container *ngSwitchCase="DataStateEnum.LOADED">
+      <mat-grid-list cols="3" rowHeight="350px">
+        <mat-grid-tile *ngFor="let card of result.data" >
+          <mat-card class="dashboard-card" >
+            <mat-card-header>
+              <mat-card-title>
+                {{card.title}}
+                <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu" xPosition="before">
+                  <button mat-menu-item>Expand</button>
+                  <button mat-menu-item>Remove</button>
+                </mat-menu>
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="dashboard-card-content">
+              <div>Card Contedfffffnt Here</div>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </ng-container>
+  </ng-container>
+
+</div>
