@@ -1,5 +1,13 @@
+<div class="body" xmlns="http://www.w3.org/1999/html">
+<div>
+  <h1 class="mat-h1" style="text-align: center;margin-top: 20px" ><strong>Nous offrons les meilleures offres immobilières</strong></h1>
+</div>
+<div style="text-align: center">
+  <p>Regardez nos derniers biens immobiliers puis vérifient les installations sur laquelles, Nous avons déjà vendu plus de 5000 maisons et nous sommes toujours en <br>
+                 cours à très bon rythme. nous espérons que vous trouverez quelque chose sur-mesure qui répondent à vos besoins.</p>
+</div>
+
 <div class="grid-container">
-  <h1 class="mat-h1">Dashboard</h1>
   <ng-container *ngIf="cards$ |async  as result" [ngSwitch]="result.dataState" >
     <ng-container *ngSwitchCase="DataStateEnum.LOADING">
           Loading................
@@ -10,28 +18,35 @@
     </ng-container>
 
     <ng-container *ngSwitchCase="DataStateEnum.LOADED">
-      <mat-grid-list cols="3" rowHeight="350px">
+      <mat-grid-list cols="3" rowHeight="800px">
         <mat-grid-tile *ngFor="let card of result.data" >
-          <mat-card class="dashboard-card" >
+          <mat-card class="example-card">
             <mat-card-header>
-              <mat-card-title>
-                {{card.title}}
-                <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-                  <mat-icon>more_vert</mat-icon>
-                </button>
-                <mat-menu #menu="matMenu" xPosition="before">
-                  <button mat-menu-item>Expand</button>
-                  <button mat-menu-item>Remove</button>
-                </mat-menu>
-              </mat-card-title>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{card.title}}</mat-card-title>
+              <mat-card-subtitle><mat-icon> location_on</mat-icon>{{card.adresse}}</mat-card-subtitle>
             </mat-card-header>
-            <mat-card-content class="dashboard-card-content">
-              <div>Card Contedfffffnt Here</div>
+            <img mat-card-image src="assets/images/logo2.jpeg" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <p>
+                {{card.description}}
+              </p>
             </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button disabled><mat-icon>crop_free</mat-icon><strong>{{card.surface}}m²</strong> </button>
+              <button mat-raised-button disabled><strong>{{card.rooms}} Chambre</strong></button>
+            </mat-card-actions>
           </mat-card>
         </mat-grid-tile>
       </mat-grid-list>
+      <mat-paginator [length]="100"
+                     [pageSize]="pageSize"
+                     [pageSizeOptions]="[5, 10, 25, 100]"
+                     aria-label="Select page">
+      </mat-paginator>
     </ng-container>
   </ng-container>
+
+</div>
 
 </div>

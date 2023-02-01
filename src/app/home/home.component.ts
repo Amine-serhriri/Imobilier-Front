@@ -13,7 +13,10 @@ import {AppDataState, DataStateEnum} from "../state/imobilier.state";
 })
 export class HomeComponent implements OnInit{
   cards$?:Observable<AppDataState<Imobiler[]>>
+  pagination$!:Observable<Imobiler>
   readonly DataStateEnum=DataStateEnum
+  currentPage:number=0
+  pageSize : number=5
 
   /** Based on the screen size, switch from standard to one column per row */
 
@@ -30,5 +33,12 @@ export class HomeComponent implements OnInit{
 
       )
   }
+  gotoPage(p:number){
+    this.currentPage=p
+    this.handleImobilier()
+  }
 
+  private handleImobilier() {
+    this.pagination$=this.DashboardService.getImobilier(this.currentPage,this.pageSize)
+  }
 }
