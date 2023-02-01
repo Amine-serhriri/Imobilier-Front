@@ -12,11 +12,11 @@ import {AppDataState, DataStateEnum} from "../state/imobilier.state";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit{
-  cards$?:Observable<AppDataState<Imobiler[]>>
-  pagination$!:Observable<Imobiler>
-  readonly DataStateEnum=DataStateEnum
-  currentPage:number=0
-  pageSize : number=5
+  cards!:Imobiler[]
+  page:number=1
+  count:number=0
+  tableSize:number=3
+
 
   /** Based on the screen size, switch from standard to one column per row */
 
@@ -25,20 +25,26 @@ export class HomeComponent implements OnInit{
               private DashboardService : DashboardService) {}
 
   ngOnInit(): void {
-    this.cards$=this.DashboardService.allImobilier()
-      .pipe(
-        map((data)=>({dataState:DataStateEnum.LOADED,data:data})),
-        startWith({dataState:DataStateEnum.LOADING}),
-        catchError(err => of({dataState:DataStateEnum.ERROR,errorMessage:err.message}))
-
-      )
-  }
-  gotoPage(p:number){
-    this.currentPage=p
-    this.handleImobilier()
+    this.ListImmobilier()
   }
 
-  private handleImobilier() {
-    this.pagination$=this.DashboardService.getImobilier(this.currentPage,this.pageSize)
+
+  ListImmobilier():void{
+    this.DashboardService.allImobilier().subscribe(
+      (data)=>{
+        this.cards=data
+      },error => {
+        console.log(error)
+      }
+    )
+  }
+  onListDataChange(event:any){
+    this.page=event
+    this.ListImmobilier()
+  }
+  onTableSizeChange(event:any):void{
+    this.tableSize=event.target.value
+    this.page=1
+    this.ListImmobilier()
   }
 }

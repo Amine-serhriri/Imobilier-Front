@@ -31,6 +31,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatSelectModule} from "@angular/material/select";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {NgxPaginationModule} from "ngx-pagination";
+import { LoginComponent } from './login/login.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -38,38 +41,45 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
     HomeComponent,
     FooterComponent,
     HeaderComponent,
-    ContactComponent
+    ContactComponent,
+    LoginComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatButtonModule,
-        LayoutModule,
-        MatToolbarModule,
-        MatSidenavModule,
-        MatIconModule,
-        MatListModule,
-        MatGridListModule,
-        MatCardModule,
-        MatMenuModule,
-        MatTableModule,
-        MatPaginatorModule,
-        MatSortModule,
-        HttpClientModule,
-        FlexModule,
-        MatFormFieldModule,
-      MatFormFieldModule,
-      MatInputModule,
-      MatCheckboxModule,
-      FormsModule,
-      ReactiveFormsModule,
-      MatSelectModule,
-      MatSlideToggleModule,
-      MatCardModule,
-      MatIconModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    HttpClientModule,
+    FlexModule,
+    MatFormFieldModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatSlideToggleModule,
+    MatCardModule,
+    MatIconModule,
+    NgxPaginationModule,
+    MatDialogModule
+  ],
   providers: [],
+  entryComponents:[
+    LoginComponent,
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

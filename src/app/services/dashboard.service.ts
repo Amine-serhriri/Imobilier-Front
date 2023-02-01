@@ -15,10 +15,7 @@ export class DashboardService {
     let host = environment.host;
     return this.http.get<Imobiler[]>(host+"/immobilier?available=true");
   }
-  public getImobilier(page : number,size:number):Observable<Imobiler>{
-    let host = environment.host;
-    return this.http.get<Imobiler>(host+"/immobilier/"+"/pageOperations?page="+page+"&size="+size)
-  }
+
 }
 
 

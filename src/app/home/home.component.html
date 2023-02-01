@@ -8,18 +8,9 @@
 </div>
 
 <div class="grid-container">
-  <ng-container *ngIf="cards$ |async  as result" [ngSwitch]="result.dataState" >
-    <ng-container *ngSwitchCase="DataStateEnum.LOADING">
-          Loading................
-    </ng-container>
-
-    <ng-container *ngSwitchCase="DataStateEnum.ERROR">
-          ERROR
-    </ng-container>
-
-    <ng-container *ngSwitchCase="DataStateEnum.LOADED">
+    <ng-container *ngIf="cards">
       <mat-grid-list cols="3" rowHeight="800px">
-        <mat-grid-tile *ngFor="let card of result.data" >
+        <mat-grid-tile *ngFor="let card of cards | paginate: {itemsPerPage: tableSize , currentPage: page , totalItems :count} let i=index " >
           <mat-card class="example-card">
             <mat-card-header>
               <div mat-card-avatar class="example-header-image"></div>
@@ -37,15 +28,16 @@
               <button mat-raised-button disabled><strong>{{card.rooms}} Chambre</strong></button>
             </mat-card-actions>
           </mat-card>
+
         </mat-grid-tile>
+
       </mat-grid-list>
-      <mat-paginator [length]="100"
-                     [pageSize]="pageSize"
-                     [pageSizeOptions]="[5, 10, 25, 100]"
-                     aria-label="Select page">
-      </mat-paginator>
+      <pagination-controls previousLabel="Prev"
+                           nextLabel="Next"
+                           (pageChange)="onListDataChange($event)">
+
+      </pagination-controls>
     </ng-container>
-  </ng-container>
 
 </div>
 

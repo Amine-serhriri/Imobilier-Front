@@ -32,6 +32,61 @@
       "rooms": 1,
       "available": false,
       "type": "ACHAT"
+    },
+    {
+      "id": 4,
+      "title": "Beautiful 2-Bedroom Villa",
+      "surface": 65,
+      "price": 250000,
+      "adresse": "1234 Main Street, Anytown USA",
+      "description": "This lovely 2-bedroom apartment features an open floor plan, modern kitchen, and spacious bedrooms.",
+      "rooms": 2,
+      "available": true,
+      "type": "LOCATION"
+    },
+    {
+      "id": 5,
+      "title": "Beautiful 2-Bedroom Studio",
+      "surface": 65,
+      "price": 250000,
+      "adresse": "1234 Main Street, Anytown USA",
+      "description": "This lovely 2-bedroom apartment features an open floor plan, modern kitchen, and spacious bedrooms.",
+      "rooms": 2,
+      "available": true,
+      "type": "LOCATION"
+    },
+    {
+      "id": 6,
+      "title": "Beautiful 2-Bedroom bureau",
+      "surface": 65,
+      "price": 250000,
+      "adresse": "1234 Main Street, Anytown USA",
+      "description": "This lovely 2-bedroom apartment features an open floor plan, modern kitchen, and spacious bedrooms.",
+      "rooms": 2,
+      "available": true,
+      "type": "LOCATION"
+    },
+    {
+      "id": 7,
+      "title": "Beautiful 2-Bedroom bureau",
+      "surface": 65,
+      "price": 250000,
+      "adresse": "1234 Main Street, Anytown USA",
+      "description": "This lovely 2-bedroom apartment features an open floor plan, modern kitchen, and spacious bedrooms.",
+      "rooms": 2,
+      "available": true,
+      "type": "LOCATION"
+    },
+    {
+      "id": 8,
+      "title": "Beautiful 2-Bedroom bureau",
+      "surface": 65,
+      "price": 250000,
+      "adresse": "1234 Main Street, Anytown USA",
+      "description": "This lovely 2-bedroom apartment features an open floor plan, modern kitchen, and spacious bedrooms.",
+      "rooms": 2,
+      "available": true,
+      "type": "LOCATION"
     }
       ],
   "feedback": [
