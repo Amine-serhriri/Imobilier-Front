@@ -16,6 +16,14 @@ export class DashboardService {
     return this.http.get<Imobiler[]>(host+"/immobilier?available=true");
   }
 
+  getAchat():Observable<Imobiler[]> {
+    let host = environment.host;
+    return this.http.get<Imobiler[]>(host+"/immobilier");
+  }
+  getLocation():Observable<Imobiler[]> {
+    let host = environment.host;
+    return this.http.get<Imobiler[]>(host+"/immobilier/location");
+  }
 }
 
 

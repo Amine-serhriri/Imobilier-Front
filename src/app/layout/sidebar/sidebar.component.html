@@ -7,3 +7,21 @@
     </a>
   </mat-list-item>
 </mat-nav-list>
+<mat-nav-list appAccordion>
+  <mat-list-item appAccordionLink  routerLinkActive="selected" >
+    <a appAccordionToggle [routerLink]="['/cafe/Achat']" >
+      <mat-icon >people</mat-icon>
+      <span>View Achat</span>
+      <span fxFlex></span>
+    </a>
+  </mat-list-item>
+</mat-nav-list>
+<mat-nav-list appAccordion>
+  <mat-list-item appAccordionLink  routerLinkActive="selected" >
+    <a appAccordionToggle [routerLink]="['/cafe/dashboard']" >
+      <mat-icon >people</mat-icon>
+      <span>View Location</span>
+      <span fxFlex></span>
+    </a>
+  </mat-list-item>
+</mat-nav-list>

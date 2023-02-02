@@ -12,6 +12,8 @@ import { MaterialModule } from '../shared/material-module';
 
 import { ConfirmationComponent } from './dialog/confirmation/confirmation.component';
 import { ChangePasswordComponent } from './dialog/change-password/change-password.component';
+import { ImobilierAchatComponent } from './dialog/imobilier-achat/imobilier-achat.component';
+
 
 
 @NgModule({
@@ -23,12 +25,14 @@ import { ChangePasswordComponent } from './dialog/change-password/change-passwor
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    CdkTableModule
+    CdkTableModule,
+
   ],
   providers: [],
   declarations: [
     ConfirmationComponent,
     ChangePasswordComponent,
+    ImobilierAchatComponent
 
   ]
 })

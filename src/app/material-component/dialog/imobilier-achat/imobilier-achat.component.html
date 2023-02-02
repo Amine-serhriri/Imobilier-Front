@@ -1,0 +1,57 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row fxLayout="row">
+    <span class="title-center">{{ dialogData.action }} Category</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="productForm" enctype="multipart/form-data">
+    <div fxFlex fxLayout="column">
+      <div fxLayout="row wrap">
+        <mat-form-field appearance="fill" fxFlex>
+          <mat-label>title</mat-label>
+          <input matInput formControlName="title" required />
+          <mat-error *ngIf="formErrors['title']">{{
+            formErrors["title"]
+            }}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row wrap">
+        <mat-form-field appearance="fill" fxFlex>
+          <mat-label>adresse</mat-label>
+          <input matInput formControlName="adresse" required />
+          <mat-error *ngIf="formErrors['adresse']">{{formErrors["adresse"]}}</mat-error>
+        </mat-form-field>
+
+      </div>
+
+      <div fxLayout="row wrap">
+        <mat-form-field appearance="fill" fxFlex>
+          <mat-label>Description</mat-label>
+          <input matInput formControlName="description" required />
+          <mat-error *ngIf="formErrors['description']">{{
+            formErrors["description"]
+            }}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row wrap">
+        <mat-form-field appearance="fill" fxFlex>
+          <mat-label>Price</mat-label>
+          <input matInput formControlName="price" required />
+          <mat-error *ngIf="formErrors['price']">{{formErrors["price"]}}</mat-error>
+        </mat-form-field>
+
+      </div>
+
+    </div>
+  </form>
+</mat-dialog-content>
+
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" type="submit" (click)="handelSubmit()" [disabled]="!(productForm.valid && productForm.dirty)">
+    {{action}}
+  </button>
+  <button mat-raised-button color="warn" mat-dialog-close> <mat-icon>cancel</mat-icon> Close</button>
+</mat-dialog-actions>

@@ -54,13 +54,13 @@ import {AccordionAnchorDirective, AccordionLinkDirective} from "./shared/accordi
     HeaderComponent,
     ContactComponent,
     LoginComponent,
-    AdminHomeComponent,
     FullComponent,
     AppHeaderComponent,
     AppSidebarComponent,
     AccordionDirective,
     AccordionLinkDirective,
-    AccordionAnchorDirective
+    AccordionAnchorDirective,
+    AdminHomeComponent
 
   ],
   imports: [

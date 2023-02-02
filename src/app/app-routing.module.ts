@@ -39,6 +39,14 @@ const routes: Routes = [
           expectedRole:['admin', 'user']
         }
       },
+      {
+        path: 'Achat',
+        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+        canActivate: [RouteGuardService],
+        data: {
+          expectedRole: ['admin', 'user']
+        }
+      }
     ]
   }
 ];
