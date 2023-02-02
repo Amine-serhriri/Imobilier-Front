@@ -1,34 +1,41 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row fxLayout="row">
+    <span>Login</span>
+    <span class="spacer"></span>
+    <button class="mat-dialog-close" mat-icon-button mat-dialog-close>
+      <mat-icon >close</mat-icon>
+    </button>
+  </mat-toolbar-row>
 
-<mat-toolbar color="primary" >
-  Login
-  <span class="flex-spacer"></span>
-  <button mat-button mat-dialog-close="">&times;</button>
 </mat-toolbar>
-<p> {{ user | json}}</p>
-<form novalidate #loginForm="ngForm" (ngSubmit)="onSubmit()" >
-  <mat-dialog-content>
-    <p>
-      <mat-form-field>
-        <input matInput  placeholder="Username" type="text"
-               [(ngModel)]="user.email" name="username"
-               #email="ngModel" required>
-        <mat-error *ngIf="email.errors?.['required','email']">Username is required</mat-error>
+
+<mat-dialog-content class="mat-typography" >
+  <form [formGroup]="loginForm">
+    <div fxFlex fxLayout="column">
+      <mat-form-field appearance="standard" fxFlex>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" required>
+        <mat-error *ngIf="formErrors['email']">{{formErrors['email']}}</mat-error>
       </mat-form-field>
-      <mat-form-field>
-        <input matInput  matInput [type]="hide ? 'password' : 'text'" placeholder="password" type="password"
-               [(ngModel)]="user.password" name="password"
-               #password="ngModel" required>
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+
+      <mat-form-field appearance="standard" fxFlex>
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password" required [type]="hide ? 'password':'text'">
+        <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-label]="'password'">
+          <mat-icon>{{hide ? 'visibility_off':'visibility'}}</mat-icon>
         </button>
-        <mat-error *ngIf="password.errors?.['required']">Password is required</mat-error>
+        <mat-error *ngIf="formErrors['password']">{{formErrors['password']}}</mat-error>
       </mat-form-field>
-      <mat-checkbox [(ngModel)]="user.remember" name="remember"> Remember Me </mat-checkbox>
-    </p>
-  </mat-dialog-content>
-  <mat-dialog-actions>
-    <span class="flex-spacer"></span>
-    <button mat-button mat-dialog-close> Cancel</button>
-    <button [disabled]="loginForm.form.invalid" type="submit" mat-button class="background-primary text-floral-white" >Login</button>
-  </mat-dialog-actions>
-</form>
+
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" type="submit" (click)="handelSubmit()" [disabled]="!(loginForm.valid && loginForm.dirty)">
+    <mat-icon>login</mat-icon>Login
+  </button>
+  <button mat-raised-button color="warn" mat-dialog-close>
+    <mat-icon>cancel</mat-icon> Close
+  </button>
+</mat-dialog-actions>

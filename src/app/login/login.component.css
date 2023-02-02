@@ -1,16 +1,17 @@
-.example-container mat-form-field + mat-form-field {
-  margin-left: 8px;
+.mat-toolbar{
+  margin: -24px;
+  width: auto;
+  margin-bottom: 10px;
+//background-color: #7b1fa2;
 }
 
-.example-right-align {
-  text-align: right;
+mat-form-field{
+  padding: 5px;
 }
 
-input.example-right-align::-webkit-outer-spin-button,
-input.example-right-align::-webkit-inner-spin-button {
-  display: none;
+mat-hint{
+  color: red;
 }
-
-input.example-right-align {
-  -moz-appearance: textfield;
+::ng-deep .error{
+  background: red;
 }

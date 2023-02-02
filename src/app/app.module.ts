@@ -20,7 +20,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import {FlexModule} from "@angular/flex-layout";
@@ -34,6 +34,10 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {NgxPaginationModule} from "ngx-pagination";
 import { LoginComponent } from './login/login.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import {TokenInterceptorInterceptor} from "./services/token-interceptor.interceptor";
+import {NgxSpinnerModule} from "ngx-spinner";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,8 @@ import {MatDialogModule} from "@angular/material/dialog";
     FooterComponent,
     HeaderComponent,
     ContactComponent,
-    LoginComponent
+    LoginComponent,
+    AdminHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -73,13 +78,13 @@ import {MatDialogModule} from "@angular/material/dialog";
     MatCardModule,
     MatIconModule,
     NgxPaginationModule,
-    MatDialogModule
-  ],
-  providers: [],
-  entryComponents:[
-    LoginComponent,
+    MatDialogModule,
+    NgxSpinnerModule,
+    MatSnackBarModule
 
   ],
+  providers: [HttpClientModule, {provide:HTTP_INTERCEPTORS, useClass:TokenInterceptorInterceptor, multi:true}],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
