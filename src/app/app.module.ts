@@ -11,7 +11,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
+import {MatListItem, MatListModule} from '@angular/material/list';
 import { HomeComponent } from './home/home.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
@@ -39,6 +39,13 @@ import {NgxSpinnerModule} from "ngx-spinner";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 
+import {FullComponent} from "./layout/full/full.component";
+import {AppHeaderComponent} from "./layout/header/header.component";
+import { DashboardComponent } from './dashboard/dashboard.component';
+import {AppSidebarComponent} from "./layout/sidebar/sidebar.component";
+import {AccordionDirective} from "./shared/accordion/accordion.directive";
+import {AccordionAnchorDirective, AccordionLinkDirective} from "./shared/accordion";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +54,14 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
     HeaderComponent,
     ContactComponent,
     LoginComponent,
-    AdminHomeComponent
+    AdminHomeComponent,
+    FullComponent,
+    AppHeaderComponent,
+    AppSidebarComponent,
+    AccordionDirective,
+    AccordionLinkDirective,
+    AccordionAnchorDirective
+
   ],
   imports: [
     BrowserModule,
@@ -81,6 +95,7 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
     MatDialogModule,
     NgxSpinnerModule,
     MatSnackBarModule
+
 
   ],
   providers: [HttpClientModule, {provide:HTTP_INTERCEPTORS, useClass:TokenInterceptorInterceptor, multi:true}],

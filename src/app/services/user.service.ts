@@ -15,4 +15,22 @@ export class UserService {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),
     });
   }
+  forgotPassword(data: any) {
+    let host=environment.unreachableHost
+    return this.http.post(host + '/user/forgotPassword', data, {
+      headers: new HttpHeaders().set('Content-Type', 'application/json'),
+    });
+  }
+
+  checkToken() {
+    let host=environment.unreachableHost
+    return this.http.get(host + '/user/checkToken');
+  }
+
+  chnagePassword(data: any) {
+    let host=environment.unreachableHost
+    return this.http.post(host + '/user/changePassword', data, {
+      headers: new HttpHeaders().set('Content-Type', 'application/json'),
+    });
+  }
 }
