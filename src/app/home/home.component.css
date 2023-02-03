@@ -17,3 +17,11 @@
  .mat-raised-button.mat-button-disabled.mat-button-disabled{
   color: black;
 }
+.btn-mail {
+  color: #fff !important;
+  background-color: #512DA8 !important;
+}
+.btn-facebook {
+  color: #fff !important;
+  background-color: #3b5998 !important;
+}

@@ -1,5 +1,5 @@
 <app-header1></app-header1>
-<div class="body" xmlns="http://www.w3.org/1999/html">
+<div class="body" >
 <div>
   <h1 class="mat-h1" style="text-align: center;margin-top: 20px" ><strong>Nous offrons les meilleures offres immobilières</strong></h1>
 </div>
@@ -35,12 +35,88 @@
       </mat-grid-list>
       <pagination-controls previousLabel="Prev"
                            nextLabel="Next"
-                           (pageChange)="onListDataChange($event)">
+                           (pageChange)="onListDataChange($event)"
+      style="margin-right: 50px">
 
       </pagination-controls>
     </ng-container>
 
-</div>
+  <div>
+    <div>
+      <h1 class="mat-h1" style="text-align: center;margin-top: 20px" ><strong>Notre Equipe</strong></h1>
+    </div>
+    <div style="text-align: center">
+      <p>******************************************************************.</p>
+    </div>
+  <ng-container >
+    <mat-grid-list cols="3" rowHeight="800px">
+      <mat-grid-tile>
+        <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Amine</mat-card-title>
+            <mat-card-subtitle>Responsable</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <p>
+              The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+              A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+              bred for hunting.
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <a mat-icon-button class="btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook fa-lg"></i></a>
+            <a mat-icon-button class="btn-mail" href="mailto:"><i class="fa fa-envelope-o fa-lg"></i></a>
+          </mat-card-actions>
+        </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Anas</mat-card-title>
+            <mat-card-subtitle>Responsable 2</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <p>
+              The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+              A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+              bred for hunting.
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <a mat-icon-button class="btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook fa-lg"></i></a>
+            <a mat-icon-button class="btn-mail" href="mailto:"><i class="fa fa-envelope-o fa-lg"></i></a>
+          </mat-card-actions>
+        </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Soussi</mat-card-title>
+            <mat-card-subtitle>Responsable 3</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <p>
+              The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+              A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+              bred for hunting.
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <a mat-icon-button class="btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook fa-lg"></i></a>
+            <a mat-icon-button class="btn-mail" href="mailto:"><i class="fa fa-envelope-o fa-lg"></i></a>
+          </mat-card-actions>
+        </mat-card>
 
+      </mat-grid-tile>
+    </mat-grid-list>
+  </ng-container>
+  </div>
+</div>
 </div>
 <app-footer></app-footer>
