@@ -41,8 +41,33 @@
           <input matInput formControlName="price" required />
           <mat-error *ngIf="formErrors['price']">{{formErrors["price"]}}</mat-error>
         </mat-form-field>
-
       </div>
+
+      <div fxLayout="row wrap">
+        <mat-form-field appearance="fill" fxFlex>
+          <mat-label>Rooms</mat-label>
+          <input matInput formControlName="rooms" required />
+          <mat-error *ngIf="formErrors['rooms']">{{formErrors["rooms"]}}</mat-error>
+        </mat-form-field>
+      </div>
+
+
+
+      <div fxLayout="row wrap">
+        <mat-form-field Surface="fill" fxFlex>
+          <mat-label>Surface</mat-label>
+          <input matInput formControlName="surface" required />
+          <mat-error *ngIf="formErrors['surface']">{{formErrors["surface"]}}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row wrap">
+        <mat-form-field Achat="fill" fxFlex>
+          <mat-label>Achat</mat-label>
+          <input value="ACHAT" matInput formControlName="ACHAT" readonly />
+        </mat-form-field>
+      </div>
+
 
     </div>
   </form>

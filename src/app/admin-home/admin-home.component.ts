@@ -7,6 +7,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {GlobalConstants} from "../shared/global-constants";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {ImobilierAchatComponent} from "../material-component/dialog/imobilier-achat/imobilier-achat.component";
+import {ConfirmationComponent} from "../material-component/dialog/confirmation/confirmation.component";
 
 @Component({
   selector: 'app-admin-home',
@@ -14,27 +15,29 @@ import {ImobilierAchatComponent} from "../material-component/dialog/imobilier-ac
   styleUrls: ['./admin-home.component.css']
 })
 export class AdminHomeComponent implements OnInit {
-  displayedColumns:string[] = [ 'title', 'adresse', 'description', 'price'];
-  dataSource:any;
-  responseMessage:any;
+  displayedColumns: string[] = ['title', 'adresse', 'description', 'price', 'surface', 'rooms', 'available', 'type','edit'];
+  dataSource: any;
+  responseMessage: any;
 
 
-  constructor(private dialog:MatDialog,
-              private dashbordService:DashboardService,
-              private ngxService:NgxSpinnerService,
-              private snackbar:SnackbarService,
-              private router:Router) { }
+  constructor(private dialog: MatDialog,
+              private dashbordService: DashboardService,
+              private ngxService: NgxSpinnerService,
+              private snackbar: SnackbarService,
+              private router: Router) {
+  }
 
   ngOnInit(): void {
     this.ngxService.show();
     this.tableData();
   }
-  tableData(){
-    this.dashbordService.getAchat().subscribe((response:any)=>{
+
+  tableData() {
+    this.dashbordService.getAchat().subscribe((response: any) => {
       this.ngxService.hide();
       console.log(response)
       this.dataSource = new MatTableDataSource(response);
-    },(error)=>{
+    }, (error) => {
       this.ngxService.hide();
       console.log(error);
       if (error.error?.message) {
@@ -52,43 +55,92 @@ export class AdminHomeComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  handeAddActions(){
+
+  handeAddActions() {
     const dialogConf = new MatDialogConfig();
     dialogConf.data = {
-      action : 'Add'
+      action: 'Add'
     }
     dialogConf.width = "850px";
     const dialogRef = this.dialog.open(ImobilierAchatComponent, dialogConf);
-    this.router.events.subscribe(()=>{
+    this.router.events.subscribe(() => {
       dialogRef.close();
     });
-    const sub = dialogRef.componentInstance.onAddProduct.subscribe((response)=>{
+    const sub = dialogRef.componentInstance.onAddProduct.subscribe((response) => {
       this.tableData();
     })
   }
 
 
-  handelEditActions(values:any){
+  handelEditActions(values: any) {
     const dialogConf = new MatDialogConfig();
     dialogConf.data = {
-      action : 'Edit',
-      data:values
+      action: 'Edit',
+      data: values
     }
     dialogConf.width = "850px";
     const dialogRef = this.dialog.open(ImobilierAchatComponent, dialogConf);
-    this.router.events.subscribe(()=>{
+    this.router.events.subscribe(() => {
       dialogRef.close();
     });
-    const sub = dialogRef.componentInstance.onEditProduct.subscribe((response)=>{
+    const sub = dialogRef.componentInstance.onEditProduct.subscribe((response) => {
       this.tableData();
     })
   }
 
-  handelDeleteActions(element:any) {
-
+  handelDeleteActions(values:any){
+    const dialogConfi = new MatDialogConfig();
+    dialogConfi.data = {
+      message:'delete '+values.title+' product'
+    };
+    const dialogRef = this.dialog.open(ConfirmationComponent, dialogConfi);
+    const sub = dialogRef.componentInstance.onEmitStatusChange.subscribe((response)=>{
+      this.ngxService.show();
+      this.deleteProduct(values.id);
+      dialogRef.close();
+    })
+  }
+  deleteProduct(id:any){
+    console.log("1.1")
+    this.dashbordService.delete(id).subscribe((response:any)=>{
+      console.log("delete 1");
+      this.ngxService.hide();
+      this.tableData();
+      this.responseMessage = response?.message;
+      this.snackbar.openSnackbar(this.responseMessage, "Success");
+    },(error)=>{
+      this.ngxService.hide();
+      console.log(error);
+      if (error.error?.message) {
+        this.responseMessage = error.error?.message;
+      } else {
+        this.responseMessage = GlobalConstants.genericError;
+      }
+      this.snackbar.openSnackbar(this.responseMessage, GlobalConstants.error);
+    })
   }
 
-  onChange(checked: boolean, id:any) {
+  onChange(status:boolean, id:any){
+    var data={
+      available:status.toString(),
+      id:id
+    }
+    console.log(data);
+    this.dashbordService.updateStatus(data).subscribe((response:any)=>{
+      this.ngxService.hide();
+      this.responseMessage = response?.message;
+      this.snackbar.openSnackbar(this.responseMessage, "Success");
+      this.tableData()
+    },(error)=>{
+      this.ngxService.hide();
+      console.log(error);
+      if (error.error?.message) {
+        this.responseMessage = error.error?.message;
+      } else {
+        this.responseMessage = GlobalConstants.genericError;
+      }
+      this.snackbar.openSnackbar(this.responseMessage, GlobalConstants.error);
 
+    })
   }
 }
