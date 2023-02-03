@@ -7,10 +7,12 @@ import {LoginComponent} from "./login/login.component";
 
 import { FullComponent } from './layout/full/full.component';
 import {RouteGuardService} from "./services/route-guard.service";
+import {DetailsComponent} from "./details/details.component";
 
 const routes: Routes = [
   {path :"home",component:HomeComponent},
   {path:"contactus",component:ContactComponent},
+  {path:"detail/:id",component:DetailsComponent},
   {path:"login",component:LoginComponent},
   {path:"",redirectTo:"/home",pathMatch:'full'},
   {

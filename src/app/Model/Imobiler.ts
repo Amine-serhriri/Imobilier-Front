@@ -1,6 +1,6 @@
 
 export interface Imobiler {
-  Id : number
+  id : number
   title:string,
   description : string,
   rooms:number,

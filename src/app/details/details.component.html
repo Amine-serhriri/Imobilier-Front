@@ -1,0 +1,47 @@
+<app-header1></app-header1>
+<div class="container"
+     fxLayout="row"
+     fxLayout.sm="column"
+     fxLayout.xs="column"
+     fxLayoutAlign.gt-md="space-around center"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0">
+
+  <div  fxFlex ="40" *ngIf="immobilier">
+    <mat-card class="example-card" >
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{immobilier.title}}</mat-card-title>
+        <mat-card-subtitle>{{immobilier.adresse}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <p>
+
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button disabled><mat-icon>crop_free</mat-icon><strong>{{immobilier.surface}}m²</strong> </button>
+        <button mat-raised-button disabled><strong>{{immobilier.rooms}} Chambre</strong></button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div fxFlex="40">
+    <div>
+      <h2><span>Comments</span> </h2>
+      <hr>
+    </div>
+    <div >
+      <mat-list >
+        <h4 matline>{{immobilier.description}}</h4>
+      </mat-list>
+    </div>
+  </div>
+  </div>
+
+
+<app-footer></app-footer>
+
+
+

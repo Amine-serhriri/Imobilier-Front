@@ -16,6 +16,8 @@ export class HomeComponent implements OnInit{
   page:number=1
   count:number=0
   tableSize:number=3
+  hidden = false;
+
 
 
   /** Based on the screen size, switch from standard to one column per row */
@@ -46,5 +48,9 @@ export class HomeComponent implements OnInit{
     this.tableSize=event.target.value
     this.page=1
     this.ListImmobilier()
+  }
+
+  toggleBadgeVisibility() {
+    this.hidden = !this.hidden;
   }
 }

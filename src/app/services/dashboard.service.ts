@@ -42,6 +42,10 @@ export class DashboardService {
       headers: new HttpHeaders().set("Content-Type", "application/json")
     })
   }
+
+  getImobilier(id:number):Observable<Imobiler>{
+    return this.http.get<Imobiler>(environment.host+"/immobilier/"+id)
+  }
 }
 
 

@@ -45,6 +45,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {AppSidebarComponent} from "./layout/sidebar/sidebar.component";
 import {AccordionDirective} from "./shared/accordion/accordion.directive";
 import {AccordionAnchorDirective, AccordionLinkDirective} from "./shared/accordion";
+import {MatBadgeModule} from "@angular/material/badge";
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
@@ -60,44 +62,46 @@ import {AccordionAnchorDirective, AccordionLinkDirective} from "./shared/accordi
     AccordionDirective,
     AccordionLinkDirective,
     AccordionAnchorDirective,
-    AdminHomeComponent
+    AdminHomeComponent,
+    DetailsComponent
 
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    MatGridListModule,
-    MatCardModule,
-    MatMenuModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    HttpClientModule,
-    FlexModule,
-    MatFormFieldModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatCheckboxModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatSelectModule,
-    MatSlideToggleModule,
-    MatCardModule,
-    MatIconModule,
-    NgxPaginationModule,
-    MatDialogModule,
-    NgxSpinnerModule,
-    MatSnackBarModule
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        LayoutModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatListModule,
+        MatGridListModule,
+        MatCardModule,
+        MatMenuModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
+        HttpClientModule,
+        FlexModule,
+        MatFormFieldModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatCheckboxModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatSelectModule,
+        MatSlideToggleModule,
+        MatCardModule,
+        MatIconModule,
+        NgxPaginationModule,
+        MatDialogModule,
+        NgxSpinnerModule,
+        MatSnackBarModule,
+        MatBadgeModule
 
 
-  ],
+    ],
   providers: [HttpClientModule, {provide:HTTP_INTERCEPTORS, useClass:TokenInterceptorInterceptor, multi:true}],
 
   bootstrap: [AppComponent]

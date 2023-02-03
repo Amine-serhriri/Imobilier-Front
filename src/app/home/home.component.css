@@ -25,3 +25,7 @@
   color: #fff !important;
   background-color: #3b5998 !important;
 }
+.demo-section + .demo-section {
+  margin-top: 16px;
+}
+
