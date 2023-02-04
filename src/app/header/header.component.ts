@@ -3,6 +3,7 @@ import {LoginComponent} from "../login/login.component";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {UserService} from "../services/user.service";
 import {Router} from "@angular/router";
+import {WtspComponent} from "../wtsp/wtsp.component";
 
 @Component({
   selector: 'app-header1',
@@ -30,5 +31,10 @@ export class HeaderComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = "550px";
     this.dialog.open(LoginComponent, dialogConfig);
+  }
+  Whatsapp() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.width = "550px";
+    this.dialog.open(WtspComponent, dialogConfig);
   }
 }

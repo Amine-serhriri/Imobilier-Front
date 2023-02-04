@@ -1,0 +1,35 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row fxLayout="row">
+    <span>Bonjour, comment puis-je vous aider ?
+</span>
+    <span class="spacer"></span>
+    <button class="mat-dialog-close" mat-icon-button mat-dialog-close>
+      <mat-icon >close</mat-icon>
+    </button>
+  </mat-toolbar-row>
+
+</mat-toolbar>
+
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="ForgotPasswordForm">
+    <div fxFlex fxLayout="column">
+      <mat-label>
+        <strong style="text-align: center"> Notre service conseil est là pour vous aider, posez-nous vos questions !</strong></mat-label>
+      <mat-form-field appearance="standard">
+
+        <input matInput formControlName="message" required placeholder="Votre message">
+        <mat-error *ngIf="formErrors['message']">{{formErrors['message']}}</mat-error>
+      </mat-form-field>
+
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" type="submit" (click)="handelSubmit()" [disabled]="!(ForgotPasswordForm.valid && ForgotPasswordForm.dirty)">
+    <mat-icon>send</mat-icon>Send message
+  </button>
+  <button mat-raised-button color="warn" mat-dialog-close>
+    <mat-icon>cancel</mat-icon> Close
+  </button>
+</mat-dialog-actions>

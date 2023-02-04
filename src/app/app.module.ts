@@ -47,6 +47,9 @@ import {AccordionDirective} from "./shared/accordion/accordion.directive";
 import {AccordionAnchorDirective, AccordionLinkDirective} from "./shared/accordion";
 import {MatBadgeModule} from "@angular/material/badge";
 import { DetailsComponent } from './details/details.component';
+import { WtspComponent } from './wtsp/wtsp.component';
+import {NgImageSliderModule} from "ng-image-slider";
+
 
 @NgModule({
   declarations: [
@@ -63,7 +66,8 @@ import { DetailsComponent } from './details/details.component';
     AccordionLinkDirective,
     AccordionAnchorDirective,
     AdminHomeComponent,
-    DetailsComponent
+    DetailsComponent,
+    WtspComponent
 
   ],
     imports: [
@@ -98,7 +102,8 @@ import { DetailsComponent } from './details/details.component';
         MatDialogModule,
         NgxSpinnerModule,
         MatSnackBarModule,
-        MatBadgeModule
+        MatBadgeModule,
+        NgImageSliderModule
 
 
     ],
