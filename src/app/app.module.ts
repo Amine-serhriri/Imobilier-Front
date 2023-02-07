@@ -49,7 +49,7 @@ import {MatBadgeModule} from "@angular/material/badge";
 import { DetailsComponent } from './details/details.component';
 import { WtspComponent } from './wtsp/wtsp.component';
 import {NgImageSliderModule} from "ng-image-slider";
-
+import { ImageComponent } from './image/image.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +67,8 @@ import {NgImageSliderModule} from "ng-image-slider";
     AccordionAnchorDirective,
     AdminHomeComponent,
     DetailsComponent,
-    WtspComponent
+    WtspComponent,
+    ImageComponent,
 
   ],
     imports: [

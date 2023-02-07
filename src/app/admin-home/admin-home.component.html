@@ -54,7 +54,7 @@
     </ng-container>
     <ng-container matColumnDef="edit">
     <th mat-header-cell *matHeaderCellDef>Action</th>
-    <th mat-cell *matCellDef="let element" class="action-link">
+    <td mat-cell *matCellDef="let element" class="action-link">
       <button
         mat-icon-button
         color="primary"
@@ -74,7 +74,20 @@
       <mat-slide-toggle (change)="onChange($event.checked, element.id)"
                         matTooltip="Activate or Desactivate validity" [checked]="element.available">
       </mat-slide-toggle>
-    </th>
+    </td>
+    </ng-container>
+    <ng-container matColumnDef="images">
+      <th mat-header-cell *matHeaderCellDef>Gestion image</th>
+      <td mat-cell *matCellDef="let element" class="action-link">
+        <button
+          mat-icon-button
+          color="primary"
+          matTooltip="Edit"
+          (click)="handleImage(element.id)"
+        >
+          <mat-icon color="warning">add_a_photo</mat-icon>
+        </button>
+      </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></tr>

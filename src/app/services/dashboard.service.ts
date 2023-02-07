@@ -44,8 +44,13 @@ export class DashboardService {
   }
 
   getImobilier(id:number):Observable<Imobiler>{
-    return this.http.get<Imobiler>(environment.host+"/immobilier/"+id)
+    return this.http.get<Imobiler>("http://localhost:3000/immobilier/"+id)
   }
+
+  uploadImage(formData: any) {
+    return this.http.post(environment.unreachableHost+"/imobilier/upload/image",formData)
+  }
+
 }
 
 

@@ -1,0 +1,34 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row fxLayout="row">
+    <span>Login</span>
+    <span class="spacer"></span>
+    <button class="mat-dialog-close" mat-icon-button mat-dialog-close>
+      <mat-icon >close</mat-icon>
+    </button>
+  </mat-toolbar-row>
+
+</mat-toolbar>
+
+<mat-dialog-content class="mat-typography" >
+  <form [formGroup]="loginForm" formenctype="multipart/form-data" >
+    <div fxFlex fxLayout="column">
+        <mat-label>Image 1 </mat-label>
+        <input  formControlName="image1" (change)="getFile($event)" type="file" required>
+
+        <mat-label>Image 2 </mat-label>
+        <input  formControlName="image2"(change)="getFile2($event)" type="file" required>
+
+
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" type="submit" (click)="handelSubmit()" [disabled]="!(loginForm.valid && loginForm.dirty)">
+    <mat-icon>login</mat-icon>Login
+  </button>
+  <button mat-raised-button color="warn" mat-dialog-close>
+    <mat-icon>cancel</mat-icon> Close
+  </button>
+</mat-dialog-actions>
+

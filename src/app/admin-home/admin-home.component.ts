@@ -8,6 +8,9 @@ import {GlobalConstants} from "../shared/global-constants";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {ImobilierAchatComponent} from "../material-component/dialog/imobilier-achat/imobilier-achat.component";
 import {ConfirmationComponent} from "../material-component/dialog/confirmation/confirmation.component";
+import {WtspComponent} from "../wtsp/wtsp.component";
+import {ImageComponent} from "../image/image.component";
+import {DatasharingService} from "../services/datasharing.service";
 
 @Component({
   selector: 'app-admin-home',
@@ -15,7 +18,7 @@ import {ConfirmationComponent} from "../material-component/dialog/confirmation/c
   styleUrls: ['./admin-home.component.css']
 })
 export class AdminHomeComponent implements OnInit {
-  displayedColumns: string[] = ['title', 'adresse', 'description', 'price', 'surface', 'rooms', 'available', 'type','edit'];
+  displayedColumns: string[] = ['title', 'adresse', 'description', 'price', 'surface', 'rooms', 'available', 'type','edit','images'];
   dataSource: any;
   responseMessage: any;
 
@@ -24,7 +27,8 @@ export class AdminHomeComponent implements OnInit {
               private dashbordService: DashboardService,
               private ngxService: NgxSpinnerService,
               private snackbar: SnackbarService,
-              private router: Router) {
+              private router: Router,
+              private datasharing:DatasharingService) {
   }
 
   ngOnInit(): void {
@@ -142,5 +146,18 @@ export class AdminHomeComponent implements OnInit {
       this.snackbar.openSnackbar(this.responseMessage, GlobalConstants.error);
 
     })
+  }
+
+
+  handleImage(id:any) {
+    var data={
+      id:id
+    }
+    console.log(data)
+    this.datasharing.changeId(data.id)
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.width = "550px";
+
+    this.dialog.open(ImageComponent, dialogConfig);
   }
 }
