@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit{
   count:number=0
   tableSize:number=3
   hidden = false;
+   datasource: any;
 
 
 
@@ -28,6 +29,9 @@ export class HomeComponent implements OnInit{
 
   ngOnInit(): void {
     this.ListImmobilier()
+    this.DashboardService.achatdetail(15).subscribe((resp:any)=>{
+      this.datasource=resp
+    })
   }
 
 

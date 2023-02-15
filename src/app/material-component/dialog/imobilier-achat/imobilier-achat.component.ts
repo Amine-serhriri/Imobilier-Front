@@ -1,9 +1,12 @@
 import {Component, EventEmitter, Inject, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, NgForm, Validators} from "@angular/forms";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {SnackbarService} from "../../../services/snackbar.service";
 import {DashboardService} from "../../../services/dashboard.service";
 import {GlobalConstants} from "../../../shared/global-constants";
+import {FileHandle} from "../../../Model/file-handle.model";
+import {DomSanitizer} from "@angular/platform-browser";
+import {Imobiler, Type} from "../../../Model/Imobiler";
 
 @Component({
   selector: 'app-imobilier-achat',
@@ -17,8 +20,19 @@ export class ImobilierAchatComponent implements OnInit {
   dialogAction:any="Add";
   action:any="Add";
   responseMessage:any;
-  categorys:any=[];
-  fileName!:string;
+
+  imoAchat:Imobiler={
+  title:"",
+  description :"" ,
+  rooms:0,
+  adresse:"",
+  available:true,
+  price:0,
+  surface:0,
+  Type : Type.ACHAT,
+    imoAchatImages:[]
+  }
+
 
   formErrors : { [char: string]: string } = {
     'title': '',
@@ -27,7 +41,6 @@ export class ImobilierAchatComponent implements OnInit {
     'description': '',
     'surface':'',
     'rooms':'',
-
     'file': ''
   } as const;
 
@@ -67,33 +80,11 @@ export class ImobilierAchatComponent implements OnInit {
               private formBuilder:FormBuilder,
               public dialogRef:MatDialogRef<ImobilierAchatComponent>,
               private snackbar: SnackbarService,
-              private dashService:DashboardService) { }
+              private dashService:DashboardService,
+              private sanitizer:DomSanitizer) { }
 
   ngOnInit(): void {
-    this.productForm = this.formBuilder.group({
-      title:[null, [Validators.required, Validators.minLength(2), Validators.maxLength(25)]],
-      adresse:[null, Validators.required],
-      price:[0, Validators.required],
-      description:[null, [Validators.minLength(5), Validators.maxLength(50)]],
-      surface:[0,[Validators.required ,Validators.min]],
-      rooms:[0,[Validators.required ,Validators.min]],
-      ACHAT:"ACHAT",
-      file:[this.fileName]
-    })
-    this.productForm.file = this.fileName;
 
-    if (this.dialogData.action === 'Edit') {
-      this.dialogAction = 'Edit';
-      this.action = 'Update';
-      this.productForm.patchValue(this.dialogData.data);
-    }
-
-
-
-    this.productForm.valueChanges
-      .subscribe((data: any) => this.onValueChanged(data));
-
-    this.onValueChanged(); // (re)set validation messages now
   }
   onValueChanged(data?: any) {
     if (!this.productForm) { return; }
@@ -117,33 +108,11 @@ export class ImobilierAchatComponent implements OnInit {
   }
 
 
-  handelSubmit() {
-    if (this.dialogAction === 'Edit') {
-      this.edit();
-    } else {
-      this.add();
-    }
-  }
 
-  private edit() {
+   add(imageAchatForm:NgForm) {
 
-  }
-
-  private add() {
-    var formData=this.productForm.value
-    var data ={
-      title :formData.title,
-      description :formData.description,
-      price :formData.price,
-      surface :formData.surface,
-      adresse :formData.adresse,
-      rooms:formData.rooms,
-      type :formData.ACHAT,
-      available:true
-
-    }
-    console.log(data)
-    this.dashService.add(data).subscribe((response:any)=>{
+    const imoAchatFormData = this.prepareFormData(this.imoAchat);
+    this.dashService.add(imoAchatFormData).subscribe((response:any)=>{
       this.dialogRef.close();
       this.onAddProduct.emit();
       this.responseMessage = response.message;
@@ -157,6 +126,38 @@ export class ImobilierAchatComponent implements OnInit {
       this.snackbar.openSnackbar(this.responseMessage, GlobalConstants.error);
     })
   }
-
+  prepareFormData(Imobilier:Imobiler):FormData{
+    const formdata=new FormData()
+    formdata.append(
+      'imoAchat',
+      new Blob([JSON.stringify(Imobilier)],{type:'application/json'})
+    );
+    for (let i = 0; i < Imobilier.imoAchatImages.length; i++) {
+      formdata.append(
+        'file',
+        Imobilier.imoAchatImages[i].file,
+        Imobilier.imoAchatImages[i].file.name
+      )
+    }
+    console.log(formdata)
+    return formdata
   }
+
+  onFileSelected(event: any) {
+    if(event.target.files){
+      const file=event.target.files[0]
+      const fileHandle:FileHandle={
+        file:file,
+        url:this.sanitizer.bypassSecurityTrustUrl(
+          window.URL.createObjectURL(file)
+        )
+      }
+      this.imoAchat.imoAchatImages.push(fileHandle)
+    }
+  }
+
+  removeImgae(i: number) {
+    this.imoAchat.imoAchatImages.splice(i,1)
+  }
+}
 

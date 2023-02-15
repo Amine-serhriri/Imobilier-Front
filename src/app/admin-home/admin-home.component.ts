@@ -65,7 +65,7 @@ export class AdminHomeComponent implements OnInit {
     dialogConf.data = {
       action: 'Add'
     }
-    dialogConf.width = "850px";
+    dialogConf.width = "1500px";
     const dialogRef = this.dialog.open(ImobilierAchatComponent, dialogConf);
     this.router.events.subscribe(() => {
       dialogRef.close();

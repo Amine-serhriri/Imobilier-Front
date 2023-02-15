@@ -12,13 +12,13 @@ export class DashboardService {
   constructor( private http:HttpClient) { }
 
   allImobilier():Observable<Imobiler[]>{
-    let host = environment.host;
-    return this.http.get<Imobiler[]>(host+"/immobilier?available=true");
+    let host = environment.unreachableHost;
+    return this.http.get<Imobiler[]>(host+"/imobilier/get");
   }
 
   getAchat():Observable<Imobiler[]> {
     let host = environment.unreachableHost;
-    return this.http.get<Imobiler[]>(host+"/imobilier/achat");
+    return this.http.get<Imobiler[]>(host+"/achat");
   }
   getLocation():Observable<Imobiler[]> {
     let host = environment.host;
@@ -35,20 +35,19 @@ export class DashboardService {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),
     });
   }
-  add(data:any){
+  add(data:FormData){
     let host = environment.unreachableHost;
-    return this.http.post(host+
-      "/imobilier/add", data, {
-      headers: new HttpHeaders().set("Content-Type", "application/json")
-    })
+    return this.http.post<Imobiler>(host+
+      "/addAchat", data)
   }
 
-  getImobilier(id:number):Observable<Imobiler>{
-    return this.http.get<Imobiler>("http://localhost:3000/immobilier/"+id)
-  }
 
   uploadImage(formData: any) {
     return this.http.post(environment.unreachableHost+"/imobilier/upload/image",formData)
+  }
+  achatdetail(id:number){
+    let host = environment.unreachableHost;
+    return this.http.get(host+"/imobilier/achatDetails/"+id)
   }
 
 }

@@ -31,7 +31,7 @@
             <mat-card-actions>
               <button mat-raised-button disabled><mat-icon>crop_free</mat-icon><strong>{{card.surface}}m²</strong> </button>
               <button mat-raised-button disabled><strong>{{card.rooms}} Chambre</strong></button>
-                <button [routerLink]="['/detail',card.id]" class="demo-section" mat-button matBadge="+"  [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility()">
+                <button [routerLink]="['/detail']" class="demo-section" mat-button matBadge="+"  [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility()">
                  Savoir
                 </button>
 
@@ -48,6 +48,7 @@
 
       </pagination-controls>
     </ng-container>
+
 
   <div>
     <div>

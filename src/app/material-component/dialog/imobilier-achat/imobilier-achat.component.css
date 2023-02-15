@@ -5,13 +5,18 @@
 //background-color: #7b1fa2;
 }
 
-mat-form-field{
-  padding: 5px;
+mat-grid-tile{
+  border: 1px solid #eee;
 }
-
-mat-hint{
-  color: red;
-}
-::ng-deep .error{
-  background: red;
+.btn-remove-image{
+  position: absolute;
+  cursor: pointer;
+  top: -10px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  width: 20px;
+  border-radius: 50%;
+  height: auto;
+  text-align: center;
 }

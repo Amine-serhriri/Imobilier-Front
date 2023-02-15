@@ -1,6 +1,6 @@
+import {FileHandle} from "./file-handle.model";
 
 export interface Imobiler {
-  id : number
   title:string,
   description : string,
   rooms:number,
@@ -8,10 +8,8 @@ export interface Imobiler {
   available:boolean,
   price:number,
   surface:number,
-  currentPage: number;
-  totalPages: number;
-  pageSize:number;
   Type : Type
+  imoAchatImages:FileHandle[]
 
 }
 export enum Type {
