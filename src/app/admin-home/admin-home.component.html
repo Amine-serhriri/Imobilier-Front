@@ -53,7 +53,7 @@
       <td mat-cell *matCellDef="let element">{{element?.type}}</td>
     </ng-container>
     <ng-container matColumnDef="edit">
-    <th mat-header-cell *matHeaderCellDef>Action</th>
+    <th style="text-align: center;" mat-header-cell *matHeaderCellDef>Action</th>
     <td mat-cell *matCellDef="let element" class="action-link">
       <button
         mat-icon-button
@@ -77,15 +77,15 @@
     </td>
     </ng-container>
     <ng-container matColumnDef="images">
-      <th mat-header-cell *matHeaderCellDef>Gestion image</th>
+      <th mat-header-cell *matHeaderCellDef> Images</th>
       <td mat-cell *matCellDef="let element" class="action-link">
         <button
           mat-icon-button
           color="primary"
           matTooltip="Edit"
-          (click)="handleImage(element.id)"
+          (click)="showImage(element)"
         >
-          <mat-icon color="warning">add_a_photo</mat-icon>
+          <mat-icon>images</mat-icon>
         </button>
       </td>
     </ng-container>

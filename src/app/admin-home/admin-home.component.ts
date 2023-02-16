@@ -1,3 +1,5 @@
+import { ImagesProcessingService } from './../services/images-processing.service';
+import { map } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import {DashboardService} from "../services/dashboard.service";
 import {NgxSpinnerService} from "ngx-spinner";
@@ -11,6 +13,8 @@ import {ConfirmationComponent} from "../material-component/dialog/confirmation/c
 import {WtspComponent} from "../wtsp/wtsp.component";
 import {ImageComponent} from "../image/image.component";
 import {DatasharingService} from "../services/datasharing.service";
+import { Imobiler } from '../Model/Imobiler';
+import { ShowImoImagesComponent } from '../show-imo-images/show-imo-images.component';
 
 @Component({
   selector: 'app-admin-home',
@@ -28,7 +32,9 @@ export class AdminHomeComponent implements OnInit {
               private ngxService: NgxSpinnerService,
               private snackbar: SnackbarService,
               private router: Router,
-              private datasharing:DatasharingService) {
+              private datasharing:DatasharingService,
+              private imagesdialog:MatDialog,
+              private imagesService:ImagesProcessingService) {
   }
 
   ngOnInit(): void {
@@ -37,7 +43,11 @@ export class AdminHomeComponent implements OnInit {
   }
 
   tableData() {
-    this.dashbordService.getAchat().subscribe((response: any) => {
+    this.dashbordService.getAchat()
+    .pipe(
+      map((x:Imobiler[], i) => x.map((imobilier:Imobiler) => this.imagesService.createImages(imobilier)))
+    )
+    .subscribe((response: any) => {
       this.ngxService.hide();
       console.log(response)
       this.dataSource = new MatTableDataSource(response);
@@ -106,7 +116,7 @@ export class AdminHomeComponent implements OnInit {
   }
   deleteProduct(id:any){
     console.log("1.1")
-    this.dashbordService.delete(id).subscribe((response:any)=>{
+    this.dashbordService.deleteAchat(id).subscribe((response:any)=>{
       console.log("delete 1");
       this.ngxService.hide();
       this.tableData();
@@ -146,6 +156,17 @@ export class AdminHomeComponent implements OnInit {
       this.snackbar.openSnackbar(this.responseMessage, GlobalConstants.error);
 
     })
+  }
+
+  showImage(imoAchat:Imobiler){
+    console.log(imoAchat);
+    this.imagesdialog.open(ShowImoImagesComponent, {
+      data :{
+        images: imoAchat.imoAchatImages
+      },
+      height: '500px',
+      width: '800px'
+    });
   }
 
 

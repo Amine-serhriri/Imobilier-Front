@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { GlobalConstants } from './../shared/global-constants';
 import { SnackbarService } from './../services/snackbar.service';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -5,7 +6,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { UserService } from './../services/user.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -33,8 +34,8 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder:FormBuilder,
               private userService:UserService,
               public dialogRef:MatDialogRef<LoginComponent>,
-              private ngService:NgxSpinnerService,
               private router:Router,
+              private spinner:NgxSpinnerService,
               private snackBar:SnackbarService) { }
 
   ngOnInit(): void {
@@ -72,7 +73,7 @@ export class LoginComponent implements OnInit {
   }
 
   handelSubmit(){
-    this.ngService.show();
+    this.spinner.show();
     var formData = this.loginForm.value;
     var data = {
       email: formData.email,
@@ -80,7 +81,7 @@ export class LoginComponent implements OnInit {
     }
   console.log(data)
     this.userService.login(data).subscribe((response:any)=>{
-      this.ngService.hide();
+      this.spinner.hide();
       this.dialogRef.close();
       console.log("1")
       localStorage.setItem('token', response.token);
@@ -89,7 +90,6 @@ export class LoginComponent implements OnInit {
     }, (error)=>{
 
       console.log("error")
-      this.ngService.hide();
       if (error.error?.message) {
         this.responseMessage = error.error?.message;
       } else {

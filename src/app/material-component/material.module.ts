@@ -13,6 +13,7 @@ import { MaterialModule } from '../shared/material-module';
 import { ConfirmationComponent } from './dialog/confirmation/confirmation.component';
 import { ChangePasswordComponent } from './dialog/change-password/change-password.component';
 import { ImobilierAchatComponent } from './dialog/imobilier-achat/imobilier-achat.component';
+import { DragDirective } from '../directives/drag.directive';
 
 
 
@@ -27,12 +28,14 @@ import { ImobilierAchatComponent } from './dialog/imobilier-achat/imobilier-acha
     FlexLayoutModule,
     CdkTableModule,
 
+
   ],
   providers: [],
   declarations: [
     ConfirmationComponent,
     ChangePasswordComponent,
-    ImobilierAchatComponent
+    ImobilierAchatComponent,
+    DragDirective
 
   ]
 })

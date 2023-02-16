@@ -1,6 +1,7 @@
+import { ShowImoImagesComponent } from './../../../show-imo-images/show-imo-images.component';
 import {Component, EventEmitter, Inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, NgForm, Validators} from "@angular/forms";
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogRef, MatDialog} from "@angular/material/dialog";
 import {SnackbarService} from "../../../services/snackbar.service";
 import {DashboardService} from "../../../services/dashboard.service";
 import {GlobalConstants} from "../../../shared/global-constants";
@@ -81,7 +82,8 @@ export class ImobilierAchatComponent implements OnInit {
               public dialogRef:MatDialogRef<ImobilierAchatComponent>,
               private snackbar: SnackbarService,
               private dashService:DashboardService,
-              private sanitizer:DomSanitizer) { }
+              private sanitizer:DomSanitizer,
+              private imagesdialog:MatDialog) { }
 
   ngOnInit(): void {
 
@@ -156,8 +158,18 @@ export class ImobilierAchatComponent implements OnInit {
     }
   }
 
+
+  fileDropped(fileHandle:any){
+    console.log(fileHandle);
+    this.imoAchat.imoAchatImages.push(fileHandle);
+  }
+
   removeImgae(i: number) {
     this.imoAchat.imoAchatImages.splice(i,1)
+  }
+
+  showImage(imoAchat:Imobiler){
+    this.imagesdialog.open(ShowImoImagesComponent);
   }
 }
 

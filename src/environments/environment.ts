@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   host:"http://localhost:3000",
-  unreachableHost :"http://192.168.11.168:8080"
+  unreachableHost :'http://localhost:8080'
 };
 
 /*

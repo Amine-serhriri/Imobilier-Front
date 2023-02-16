@@ -1,13 +1,11 @@
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from "@angular/material/button";
-
-
-import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
@@ -18,7 +16,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 
 import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { FooterComponent } from './footer/footer.component';
@@ -31,11 +28,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatSelectModule} from "@angular/material/select";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
-import {NgxPaginationModule} from "ngx-pagination";
 import { LoginComponent } from './login/login.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {TokenInterceptorInterceptor} from "./services/token-interceptor.interceptor";
-import {NgxSpinnerModule} from "ngx-spinner";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 
@@ -48,8 +43,9 @@ import {AccordionAnchorDirective, AccordionLinkDirective} from "./shared/accordi
 import {MatBadgeModule} from "@angular/material/badge";
 import { DetailsComponent } from './details/details.component';
 import { WtspComponent } from './wtsp/wtsp.component';
-import {NgImageSliderModule} from "ng-image-slider";
+import {NgxPaginationModule} from "ngx-pagination";
 import { ImageComponent } from './image/image.component';
+import { ShowImoImagesComponent } from './show-imo-images/show-imo-images.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +65,8 @@ import { ImageComponent } from './image/image.component';
     DetailsComponent,
     WtspComponent,
     ImageComponent,
+    ShowImoImagesComponent,
+
 
   ],
     imports: [
@@ -76,7 +74,6 @@ import { ImageComponent } from './image/image.component';
         AppRoutingModule,
         BrowserAnimationsModule,
         MatButtonModule,
-        LayoutModule,
         MatToolbarModule,
         MatSidenavModule,
         MatIconModule,
@@ -85,7 +82,6 @@ import { ImageComponent } from './image/image.component';
         MatCardModule,
         MatMenuModule,
         MatTableModule,
-        MatPaginatorModule,
         MatSortModule,
         HttpClientModule,
         FlexModule,
@@ -99,17 +95,17 @@ import { ImageComponent } from './image/image.component';
         MatSlideToggleModule,
         MatCardModule,
         MatIconModule,
-        NgxPaginationModule,
         MatDialogModule,
-        NgxSpinnerModule,
         MatSnackBarModule,
         MatBadgeModule,
-        NgImageSliderModule
+        NgxPaginationModule,
+        NgxSpinnerModule
 
 
     ],
   providers: [HttpClientModule, {provide:HTTP_INTERCEPTORS, useClass:TokenInterceptorInterceptor, multi:true}],
 
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[]
 })
 export class AppModule { }

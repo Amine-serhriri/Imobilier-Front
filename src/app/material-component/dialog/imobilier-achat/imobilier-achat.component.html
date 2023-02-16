@@ -79,20 +79,42 @@
         </div>
 
         <div class="col-6">
-          <input
-            type="file"
-            multiple
-            value="select"
-            #selectFile
-            (change)="onFileSelected($event)"
-          />
+          <div>
+            <div class="dropzone"
+            appDrag
+            (files) = "fileDropped($event)"
+            >
+
+              <div class="text-wrapper">
+                <div class="centred">
+                  Drag and drop your file or
+                  <a (click)="selectFile.click()" class="browse-button">
+                    browse
+                  </a>
+                  a file
+                </div>
+              </div>
+            </div>
+            <input
+              type="file"
+              multiple
+              style="display: none"
+              value="select"
+              #selectFile
+              (change)="onFileSelected($event)"
+            />
+          </div>
 
           <div class="mt-5">
             <div class="row">
               <mat-grid-list cols="4" rowHeight="1:1">
-                <mat-grid-tile *ngFor="let file of imoAchat.imoAchatImages; let i=index;">
+                <mat-grid-tile
+                  *ngFor="let file of imoAchat.imoAchatImages; let i = index"
+                >
                   <div style="position: relative">
-                    <span class="btn-remove-image" (click)="removeImgae(i)">X</span>
+                    <span class="btn-remove-image" (click)="removeImgae(i)"
+                      >X</span
+                    >
                     <img [src]="file.url" width="100px" height="100px" />
                   </div>
                 </mat-grid-tile>
@@ -107,8 +129,6 @@
 
 
 <mat-dialog-actions align="end">
-<button>
-    {{action}}
-  </button>
+
   <button mat-raised-button color="warn" mat-dialog-close> <mat-icon>cancel</mat-icon> Close</button>
 </mat-dialog-actions>
