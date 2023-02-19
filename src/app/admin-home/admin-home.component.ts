@@ -87,12 +87,15 @@ export class AdminHomeComponent implements OnInit {
 
 
   handelEditActions(values: any) {
+    console.log(values)
     const dialogConf = new MatDialogConfig();
     dialogConf.data = {
       action: 'Edit',
       data: values
     }
-    dialogConf.width = "850px";
+    console.log(dialogConf.data.action)
+    console.log(dialogConf.data.data)
+    dialogConf.width = "1500px";
     const dialogRef = this.dialog.open(ImobilierAchatComponent, dialogConf);
     this.router.events.subscribe(() => {
       dialogRef.close();

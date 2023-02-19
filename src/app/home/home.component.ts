@@ -12,12 +12,13 @@ import {AppDataState, DataStateEnum} from "../state/imobilier.state";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit{
+  panelOpenState=false
   cards!:Imobiler[]
   page:number=1
   count:number=0
   tableSize:number=3
   hidden = false;
-   datasource: any;
+  datasource: any;
 
 
 
@@ -28,33 +29,9 @@ export class HomeComponent implements OnInit{
               private DashboardService : DashboardService) {}
 
   ngOnInit(): void {
-    this.ListImmobilier()
-    this.DashboardService.achatdetail(15).subscribe((resp:any)=>{
-      this.datasource=resp
-    })
+    this.panelOpenState=true
+
   }
 
 
-  ListImmobilier():void{
-    this.DashboardService.allImobilier().subscribe(
-      (data)=>{
-        this.cards=data
-      },error => {
-        console.log(error)
-      }
-    )
-  }
-  onListDataChange(event:any){
-    this.page=event
-    this.ListImmobilier()
-  }
-  onTableSizeChange(event:any):void{
-    this.tableSize=event.target.value
-    this.page=1
-    this.ListImmobilier()
-  }
-
-  toggleBadgeVisibility() {
-    this.hidden = !this.hidden;
-  }
 }

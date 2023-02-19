@@ -14,7 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
-
+import {MatExpansionModule} from '@angular/material/expansion';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
@@ -46,6 +46,9 @@ import { WtspComponent } from './wtsp/wtsp.component';
 import {NgxPaginationModule} from "ngx-pagination";
 import { ImageComponent } from './image/image.component';
 import { ShowImoImagesComponent } from './show-imo-images/show-imo-images.component';
+import { AchatListComponent } from './achat-list/achat-list.component';
+import { TestComponent } from './test/test.component';
+
 
 @NgModule({
   declarations: [
@@ -66,6 +69,8 @@ import { ShowImoImagesComponent } from './show-imo-images/show-imo-images.compon
     WtspComponent,
     ImageComponent,
     ShowImoImagesComponent,
+    AchatListComponent,
+    TestComponent,
 
 
   ],
@@ -99,7 +104,8 @@ import { ShowImoImagesComponent } from './show-imo-images/show-imo-images.compon
         MatSnackBarModule,
         MatBadgeModule,
         NgxPaginationModule,
-        NgxSpinnerModule
+        NgxSpinnerModule,
+        MatExpansionModule
 
 
     ],

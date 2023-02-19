@@ -86,6 +86,14 @@ export class ImobilierAchatComponent implements OnInit {
               private imagesdialog:MatDialog) { }
 
   ngOnInit(): void {
+    if (this.dialogData.action === 'Edit') {
+      this.dialogAction = 'Edit';
+      this.action = 'Update';
+      //this.productForm.patchValue(this.dialogData.data);
+      this.imoAchat = this.dialogData.data;
+      console.log(this.dialogData);
+
+    }
 
   }
   onValueChanged(data?: any) {
@@ -107,6 +115,10 @@ export class ImobilierAchatComponent implements OnInit {
         }
       }
     }
+  }
+
+  edit(){
+
   }
 
 

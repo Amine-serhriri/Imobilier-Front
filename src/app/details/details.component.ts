@@ -20,7 +20,7 @@ export class DetailsComponent implements OnInit {
               private location:Location,) { }
 
   ngOnInit(): void {
-    this.dashService.achatdetail(15).subscribe(
+    /*this.dashService.achatdetail(15).subscribe(
       (data:any)=>{
         console.log(data)
 
@@ -40,7 +40,7 @@ export class DetailsComponent implements OnInit {
 
 
 
-
+*/
 
   /*goBack() {
     this.location.back();

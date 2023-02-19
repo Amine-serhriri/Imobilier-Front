@@ -13,7 +13,7 @@ export class FeedbackService {
   }
 
   submitFeedBack(feedback: Feedback): Observable<Feedback> {
-    let host = environment.host;
+    let host ;
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'

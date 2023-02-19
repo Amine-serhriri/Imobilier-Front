@@ -1,0 +1,33 @@
+<app-header1></app-header1>
+
+<div  class="container mt-5" style="margin-bottom: 10px;">
+ <hr>
+ <span >
+  <h1 class="mat-h1" style="text-align: center; margin-top: 20px">NOUVEAUTÉS À ACHETER</h1>
+  </span>
+  <mat-grid-list cols="4" rowHeight="2:3" gutterSize="10">
+    <mat-grid-tile *ngFor="let achat of dataSource" >
+      <div class="row home-page-achat-image">
+        <p style="margin-top:-20px; ;"><mat-icon> location_on</mat-icon>{{achat.adresse}}</p>
+        <img [src]="achat.imoAchatImages[0]?.url">
+        <div class="mt-3">
+        <p> <b>{{achat.title}}</b></p>
+      </div>
+      <div class="mt-2">
+        <p style="white-space: inherit; height: 40px; width: 288px; overflow: hidden; text-overflow: ellipsis;"> {{achat.description}}</p>
+      </div>
+      <div class="mt-2">
+       <!--<mat-icon>crop_free</mat-icon><strong>{{achat.surface}}m²</strong>-->
+        <p style=" background-color: darkgray; padding-right:40px ; padding-left:40px ;text-align: center;">{{achat.price}} DH</p>
+      </div>
+      <div class="mt-2">
+       <button type="button" mat-raised-button color="primary">Voir +</button>
+      </div>
+      </div>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+</div>
+
+
+<app-footer></app-footer>

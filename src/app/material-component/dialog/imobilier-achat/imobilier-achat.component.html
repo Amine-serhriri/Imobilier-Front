@@ -73,13 +73,13 @@
               />
             </mat-form-field>
             <button type="submit" mat-raised-button color="primary">
-              Add Achat
+              {{action}} Achat
             </button>
           </form>
         </div>
 
         <div class="col-6">
-          <div>
+          <div appDra >
             <div class="dropzone"
             appDrag
             (files) = "fileDropped($event)"

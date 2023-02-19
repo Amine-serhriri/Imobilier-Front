@@ -1,132 +1,221 @@
 <app-header1></app-header1>
-<div class="container"
-     fxLayout="column"
-     fxLayoutGap="10px"
-    >
-<div>
-  <hr>
-  <h1 class="mat-h1" style="text-align: center;margin-top: 20px" ><strong>Nous offrons les meilleures offres immobilières</strong></h1>
-</div>
-<div style="text-align: center">
-  <p>Regardez nos derniers biens immobiliers puis vérifient les installations sur laquelles, Nous avons déjà vendu plus de 5000 maisons et nous sommes toujours en <br>
-                 cours à très bon rythme. nous espérons que vous trouverez quelque chose sur-mesure qui répondent à vos besoins.</p>
-</div>
-
-<div class="grid-container" >
-    <ng-container *ngIf="cards" >
-      <mat-grid-list cols="3" rowHeight="800px" >
-        <mat-grid-tile *ngFor="let card of cards | paginate: {itemsPerPage: tableSize , currentPage: page , totalItems :count} let i=index " >
-          <mat-card class="example-card">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>{{card.title}}</mat-card-title>
-              <mat-card-subtitle><mat-icon> location_on</mat-icon>{{card.adresse}}</mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image src="assets/images/logo2.jpeg" alt="Photo of a Shiba Inu">
-            <mat-card-content>
-              <p>
-                {{card.description}}
-              </p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-raised-button disabled><mat-icon>crop_free</mat-icon><strong>{{card.surface}}m²</strong> </button>
-              <button mat-raised-button disabled><strong>{{card.rooms}} Chambre</strong></button>
-                <button [routerLink]="['/detail']" class="demo-section" mat-button matBadge="+"  [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility()">
-                 Savoir
-                </button>
-
-            </mat-card-actions>
-          </mat-card>
-
-        </mat-grid-tile>
-
-      </mat-grid-list>
-      <pagination-controls previousLabel="Prev"
-                           nextLabel="Next"
-                           (pageChange)="onListDataChange($event)"
-      style="margin-left: 500px">
-
-      </pagination-controls>
-    </ng-container>
-
-
+<div class="container" fxLayout="column" fxLayoutGap="10px">
   <div>
-    <div>
-      <hr>
-      <h1 class="mat-h1" style="text-align: center;margin-top: 20px" ><strong>Notre Equipe</strong></h1>
-    </div>
-    <div style="text-align: center">
-      <p>******************************************************************.</p>
-    </div>
-  <ng-container >
-    <mat-grid-list cols="3" rowHeight="800px">
-      <mat-grid-tile >
-        <mat-card class="example-card">
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>Amine</mat-card-title>
-            <mat-card-subtitle>Responsable</mat-card-subtitle>
-          </mat-card-header>
-          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-          <mat-card-content>
-            <p>
-              The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-              A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-              bred for hunting.
-            </p>
-          </mat-card-content>
-          <mat-card-actions>
-            <a mat-icon-button class="btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook fa-lg"></i></a>
-            <a mat-icon-button class="btn-mail" href="mailto:"><i class="fa fa-envelope-o fa-lg"></i></a>
-          </mat-card-actions>
-        </mat-card>
-      </mat-grid-tile>
-      <mat-grid-tile >
-        <mat-card class="example-card">
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>Anas</mat-card-title>
-            <mat-card-subtitle>Responsable 2</mat-card-subtitle>
-          </mat-card-header>
-          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-          <mat-card-content>
-            <p>
-              The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-              A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-              bred for hunting.
-            </p>
-          </mat-card-content>
-          <mat-card-actions>
-            <a mat-icon-button class="btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook fa-lg"></i></a>
-            <a mat-icon-button class="btn-mail" href="mailto:"><i class="fa fa-envelope-o fa-lg"></i></a>
-          </mat-card-actions>
-        </mat-card>
-      </mat-grid-tile>
-      <mat-grid-tile >
-        <mat-card class="example-card">
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>Soussi</mat-card-title>
-            <mat-card-subtitle>Responsable 3</mat-card-subtitle>
-          </mat-card-header>
-          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-          <mat-card-content>
-            <p>
-              The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-              A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-              bred for hunting.
-            </p>
-          </mat-card-content>
-          <mat-card-actions>
-            <a mat-icon-button class="btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook fa-lg"></i></a>
-            <a mat-icon-button class="btn-mail" href="mailto:"><i class="fa fa-envelope-o fa-lg"></i></a>
-          </mat-card-actions>
-        </mat-card>
-
-      </mat-grid-tile>
-    </mat-grid-list>
-  </ng-container>
+    <hr />
+    <h1 class="mat-h1" style="text-align: center; margin-top: 20px">
+      <strong>Nous offrons les meilleures offres immobilières</strong>
+    </h1>
   </div>
-</div>
+  <div style="text-align: center">
+    <p>
+      Regardez nos derniers biens immobiliers puis vérifient les installations
+      sur laquelles, Nous avons déjà vendu plus de 5000 maisons et nous sommes
+      toujours en <br />
+      cours à très bon rythme. nous espérons que vous trouverez quelque chose
+      sur-mesure qui répondent à vos besoins.
+    </p>
+  </div>
+
+  <div style="margin-top: 20px" class="container">
+    <mat-grid-list style="margin-top: 20px" cols="2" rowHeight="1:1">
+      <mat-grid-tile
+        ><mat-accordion style="margin-top: 40px">
+          <mat-expansion-panel
+            [expanded]="true"
+            (opened)="panelOpenState = true"
+            (closed)="panelOpenState = false"
+          >
+            <mat-expansion-panel-header>
+              <mat-panel-title style="font-size: 30px"> Achat </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-card class="example-card">
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>
+                  <a mat-button routerLink="/achatList" >
+                    Je souhaite Acheter</a
+                  >
+                </mat-card-title>
+                <mat-card-subtitle
+                  >Vous recherchez un appartement ou une maison à vendre
+                  ?</mat-card-subtitle
+                >
+              </mat-card-header>
+              <img
+                routerLink="achatList"
+                mat-card-image
+                src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                alt="Photo of a Shiba Inu"
+              />
+              <mat-card-content>
+                <p>
+                  Chaque professionnel de CENTURY 21® met à votre disposition
+                  son savoir-faire et sa connaissance du marché immobilier pour
+                  vous assister au mieux dans la réalisation de ce nouveau
+                  projet de vie.
+                </p>
+              </mat-card-content>
+            </mat-card>
+          </mat-expansion-panel>
+        </mat-accordion></mat-grid-tile
+      >
+      <mat-grid-tile
+        ><mat-accordion style="margin-top: 40px"
+          ><mat-expansion-panel
+            [expanded]="false"
+            (opened)="panelOpenState = true"
+            (closed)="panelOpenState = false"
+          >
+            <mat-expansion-panel-header>
+              <mat-panel-title style="font-size: 30px">
+                Location
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-card class="example-card">
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>Je souhaite Louer</mat-card-title>
+                <mat-card-subtitle
+                  >Des conseillers à vos côtés pour votre recherche de
+                  location</mat-card-subtitle
+                >
+              </mat-card-header>
+              <img
+                mat-card-image
+                src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                alt="Photo of a Shiba Inu"
+              />
+              <mat-card-content>
+                <p>
+                  Réussir la location d’un bien nécessite une véritable
+                  connaissance du marché immobilier local. En passant par
+                  l’agence Century 21 Casablanca vous aurez la garantie de louer
+                  un appartement ou une villa au Maroc conformément à vos
+                  besoins dans les meilleurs délais.
+                </p>
+              </mat-card-content>
+            </mat-card>
+          </mat-expansion-panel>
+        </mat-accordion></mat-grid-tile
+      >
+    </mat-grid-list>
+
+    <div>
+      <div>
+        <hr />
+        <h1 class="mat-h1" style="text-align: center; margin-top: 20px">
+          <strong>Notre Equipe</strong>
+        </h1>
+      </div>
+      <div style="text-align: center">
+        <p>
+          ******************************************************************.
+        </p>
+      </div>
+      <ng-container>
+        <mat-grid-list cols="3" rowHeight="800px">
+          <mat-grid-tile>
+            <mat-card class="example-card">
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>Amine</mat-card-title>
+                <mat-card-subtitle>Responsable</mat-card-subtitle>
+              </mat-card-header>
+              <img
+                mat-card-image
+                src="../../assets/images/amine.jfif"
+                alt="Photo of a Shiba Inu"
+              />
+              <mat-card-content>
+                <p>
+                  The Shiba Inu is the smallest of the six original and distinct
+                  spitz breeds of dog from Japan. A small, agile dog that copes
+                  very well with mountainous terrain, the Shiba Inu was
+                  originally bred for hunting.
+                </p>
+              </mat-card-content>
+              <mat-card-actions>
+                <a
+                  mat-icon-button
+                  class="btn-facebook"
+                  href="http://www.facebook.com/profile.php?id="
+                  ><i class="fa fa-facebook fa-lg"></i
+                ></a>
+                <a mat-icon-button class="btn-mail" href="mailto:"
+                  ><i class="fa fa-envelope-o fa-lg"></i
+                ></a>
+              </mat-card-actions>
+            </mat-card>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-card class="example-card">
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>Anas</mat-card-title>
+                <mat-card-subtitle>Responsable 2</mat-card-subtitle>
+              </mat-card-header>
+              <img
+                mat-card-image
+                src="../../assets/images/amine.jfif"
+                alt="Photo of a Shiba Inu"
+              />
+              <mat-card-content>
+                <p>
+                  The Shiba Inu is the smallest of the six original and distinct
+                  spitz breeds of dog from Japan. A small, agile dog that copes
+                  very well with mountainous terrain, the Shiba Inu was
+                  originally bred for hunting.
+                </p>
+              </mat-card-content>
+              <mat-card-actions>
+                <a
+                  mat-icon-button
+                  class="btn-facebook"
+                  href="http://www.facebook.com/profile.php?id="
+                  ><i class="fa fa-facebook fa-lg"></i
+                ></a>
+                <a mat-icon-button class="btn-mail" href="mailto:"
+                  ><i class="fa fa-envelope-o fa-lg"></i
+                ></a>
+              </mat-card-actions>
+            </mat-card>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-card class="example-card">
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>mehdi</mat-card-title>
+                <mat-card-subtitle>Responsable 3</mat-card-subtitle>
+              </mat-card-header>
+              <img
+                mat-card-image
+                src="../../assets/images/amine.jfif"
+                alt="Photo of a Shiba Inu"
+              />
+              <mat-card-content>
+                <p>
+                  The Shiba Inu is the smallest of the six original and distinct
+                  spitz breeds of dog from Japan. A small, agile dog that copes
+                  very well with mountainous terrain, the Shiba Inu was
+                  originally bred for hunting.
+                </p>
+              </mat-card-content>
+              <mat-card-actions>
+                <a
+                  mat-icon-button
+                  class="btn-facebook"
+                  href="http://www.facebook.com/profile.php?id="
+                  ><i class="fa fa-facebook fa-lg"></i
+                ></a>
+                <a mat-icon-button class="btn-mail" href="mailto:"
+                  ><i class="fa fa-envelope-o fa-lg"></i
+                ></a>
+              </mat-card-actions>
+            </mat-card>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </ng-container>
+    </div>
+  </div>
 </div>
 <app-footer></app-footer>

@@ -20,10 +20,7 @@ export class DashboardService {
     let host = environment.unreachableHost;
     return this.http.get<Imobiler[]>(host+"/imoAchat/achat");
   }
-  getLocation():Observable<Imobiler[]> {
-    let host = environment.host;
-    return this.http.get<Imobiler[]>(host+"/immobilier/location");
-  }
+
 
   deleteAchat(id: any) {
     let host = environment.unreachableHost;
@@ -45,9 +42,14 @@ export class DashboardService {
   uploadImage(formData: any) {
     return this.http.post(environment.unreachableHost+"/imobilier/upload/image",formData)
   }
-  achatdetail(id:number){
+  /*achatdetail(id:number){
     let host = environment.unreachableHost;
     return this.http.get(host+"/imobilier/achatDetails/"+id)
+  }
+*/
+  achatDetails(id:any){
+    let host = environment.unreachableHost;
+    return this.http.get<Imobiler>(host+"/imoAchat/getAchatDetailsById/"+id)
   }
 
 }

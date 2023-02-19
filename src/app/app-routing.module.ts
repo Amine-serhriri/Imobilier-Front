@@ -1,3 +1,7 @@
+import { TestComponent } from './test/test.component';
+import { AchatListComponent } from './achat-list/achat-list.component';
+import { ImoAchatResolveService } from './services/imo-achat-resolve.service';
+import { Imobiler } from './Model/Imobiler';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {HomeComponent} from "./home/home.component";
@@ -13,7 +17,9 @@ const routes: Routes = [
   {path :"home",component:HomeComponent},
   {path:"contactus",component:ContactComponent},
   {path:"detail/:id",component:DetailsComponent},
+  {path:"test",component:TestComponent},
   {path:"login",component:LoginComponent},
+  {path:"achatList",component:AchatListComponent},
   {path:"",redirectTo:"/home",pathMatch:'full'},
   {
     path: 'cafe',
@@ -47,6 +53,9 @@ const routes: Routes = [
         canActivate: [RouteGuardService],
         data: {
           expectedRole: ['admin', 'user']
+        },
+        resolve: {
+          imoAchat:ImoAchatResolveService
         }
       }
     ]
