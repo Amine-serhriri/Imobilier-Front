@@ -6,6 +6,7 @@ import { ImagesProcessingService } from './../services/images-processing.service
 import { DashboardService } from './../services/dashboard.service';
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,7 +22,8 @@ export class AchatListComponent implements OnInit {
   constructor(private dashbordService:DashboardService,
     private imagesService:ImagesProcessingService,
     private ngxService: NgxSpinnerService,
-    private snackbar: SnackbarService) { }
+    private snackbar: SnackbarService,
+    private router:Router) { }
 
   ngOnInit(): void {
     this.getAllAchats();
@@ -46,6 +48,9 @@ export class AchatListComponent implements OnInit {
       }
       this.snackbar.openSnackbar(this.responseMessage, GlobalConstants.error);
     })
+  }
+  ShowAchatDetails(id:number){
+    this.router.navigate(['/achatDetails', {id:id}])
   }
 
 

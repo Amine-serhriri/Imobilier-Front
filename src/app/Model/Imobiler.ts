@@ -1,6 +1,7 @@
 import {FileHandle} from "./file-handle.model";
 
 export interface Imobiler {
+  id: number;
   title:string,
   description : string,
   rooms:number,

@@ -28,6 +28,7 @@ export class ImoAchatResolveService implements Resolve<Imobiler>{
 
   getImoAchatDetails(){
     return {
+      id:0,
       title:"",
       description :"" ,
       rooms:0,

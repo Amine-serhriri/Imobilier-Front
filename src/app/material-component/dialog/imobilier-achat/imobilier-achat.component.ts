@@ -23,6 +23,7 @@ export class ImobilierAchatComponent implements OnInit {
   responseMessage:any;
 
   imoAchat:Imobiler={
+  id:0,
   title:"",
   description :"" ,
   rooms:0,

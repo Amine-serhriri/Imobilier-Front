@@ -1,3 +1,4 @@
+import { AchatDetailsComponent } from './achat-details/achat-details.component';
 import { TestComponent } from './test/test.component';
 import { AchatListComponent } from './achat-list/achat-list.component';
 import { ImoAchatResolveService } from './services/imo-achat-resolve.service';
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path:"test",component:TestComponent},
   {path:"login",component:LoginComponent},
   {path:"achatList",component:AchatListComponent},
+  {path:"achatDetails/:id",component:AchatDetailsComponent, resolve: {imoAchat:ImoAchatResolveService}},
   {path:"",redirectTo:"/home",pathMatch:'full'},
   {
     path: 'cafe',

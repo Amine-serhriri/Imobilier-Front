@@ -1,0 +1,21 @@
+.container {
+  border: 1px solid lightgray ;
+
+}
+
+.image-container{
+  height: 500px;
+  position: relative;
+  border: 1px solid lightgray ;
+}
+.achat-zoom-image{
+max-width: 90%;
+max-height: 90%;
+position: absolute;
+margin: auto;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+
+}

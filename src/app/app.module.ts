@@ -48,6 +48,7 @@ import { ImageComponent } from './image/image.component';
 import { ShowImoImagesComponent } from './show-imo-images/show-imo-images.component';
 import { AchatListComponent } from './achat-list/achat-list.component';
 import { TestComponent } from './test/test.component';
+import { AchatDetailsComponent } from './achat-details/achat-details.component';
 
 
 @NgModule({
@@ -71,6 +72,7 @@ import { TestComponent } from './test/test.component';
     ShowImoImagesComponent,
     AchatListComponent,
     TestComponent,
+    AchatDetailsComponent,
 
 
   ],

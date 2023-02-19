@@ -8,6 +8,12 @@ mat-card {
 
 table {
   width: 100%;
+
 }
 
-
+.mat-column-description{
+  width: 30% !important;
+}
+ table td{
+  padding: 10px;
+ }
