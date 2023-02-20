@@ -1,32 +1,61 @@
 <mat-toolbar color="primary" xmlns:C="http://www.w3.org/1999/xhtml">
-  <a mat-button  routerLinkActive="active" routerLink="../home"><span class="fa fa-home fa-lg"></span> Home</a>
-  <a mat-button  routerLinkActive="active" routerLink="/about"><span class="fa fa-info fa-lg"></span> Vente </a>
-  <a mat-button  routerLinkActive="active" routerLink="/achatList"><span class="fa fa-list fa-lg"></span> Achat </a>
-  <a mat-button  routerLinkActive="active" ><span class="fa fa-list fa-lg"></span> Location</a>
-  <a mat-button routerLinkActive="active" routerLink="/contactus" ><span class="fa fa-address-card fa-lg"></span> Contact</a>
+  <a mat-button routerLinkActive="active" routerLink="../home"
+    ><span class="fa fa-home fa-lg"></span> Home</a
+  >
+  <a mat-button routerLinkActive="active" routerLink="/about"
+    ><span class="fa fa-info fa-lg"></span> Vente
+  </a>
+  <a mat-button routerLinkActive="active" routerLink="/achatList"
+    ><span class="fa fa-list fa-lg"></span> Achat
+  </a>
+  <a mat-button routerLinkActive="active"
+    ><span class="fa fa-list fa-lg"></span> Location</a
+  >
+  <a mat-button routerLinkActive="active" routerLink="/contactus"
+    ><span class="fa fa-address-card fa-lg"></span> Contact</a
+  >
 
-  <a mat-button routerLinkActive="active" (click)="Whatsapp()" ><mat-icon> message</mat-icon>Whatsapp</a>
+  <a mat-button routerLinkActive="active" (click)="Whatsapp()"
+    ><mat-icon> message</mat-icon>Whatsapp</a
+  >
 
   <span class="flex-spacer"></span>
-  <a mat-button (click)="openLoginForm()"><span class="fa fa-sign-in fa-lg"></span> Login</a>
+  <a mat-button (click)="openLoginForm()"
+    ><span class="fa fa-sign-in fa-lg"></span> Login</a
+  >
 </mat-toolbar>
 
-<div class="container jumbotron"
-     fxLayout="row"
-     fxLayout.sm="column"
-     fxLayout.xs="column"
-     fxLayoutAlign.xs="start center"
-     fxLayoutAlign.sm="start center"
-     fxLayoutAlign.gt-sm="center center"
-     fxLayoutGap="10px">
+<div
+  class="container jumbotron"
+  fxLayout="row"
+  fxLayout.sm="column"
+  fxLayout.xs="column"
+  fxLayoutAlign.xs="start center"
+  fxLayoutAlign.sm="start center"
+  fxLayoutAlign.gt-sm="center center"
+  fxLayoutGap="10px"
+>
+  <div class="mb-5" fxFlex="50" fxFlex.gt-sm="50%">
+    <h1>Maroc Immobilier Consulting</h1>
+    <p class="description">
+      Bienvenue chez Maroc Immobilier consulting, votre agence immobilière de
+      confiance à Meknès.<br /> Notre équipe passionnée et professionnelle est dédiée
+      à vous aider à atteindre vos objectifs immobiliers en vous offrant un
+      service personnalisé et adapté à vos besoins.<br /> Nous comprenons que l'achat,
+      la vente ou la location d'une propriété peut être stressant, c'est
+      pourquoi nous nous engageons à rendre le processus aussi transparent et
+      facile que possible.<br /> Nous offrons une expertise immobilière inégalée, un
+      service client exceptionnel et un accès exclusif à une large sélection de
+      propriétés de qualité. Chez Maroc Immobilier consulting, votre
+      satisfaction est notre priorité. <br />Contactez-nous dès aujourd'hui pour
+      découvrir comment nous pouvons vous aider à réaliser vos rêves immobiliers
+      en toute confiance et en toute sécurité.
+    </p>
+    <div class="mt-5 achat">
 
-  <div fxFlex="50" fxFlex.gt-sm="50%">
-    <h1>Maroc Immobilier Consulting </h1>
-    <p>************************************************************************************</p>
+      {{ message }} <i class="fa fa-hand-o-down" aria-hidden="true"></i>
+    </div>
   </div>
-  <div fxFlex="50" fxFlex.gt-sm="70%">
-
-  </div>
-
+  <div fxFlex="50" fxFlex.gt-sm="70%"></div>
 </div>
 <router-outlet></router-outlet>

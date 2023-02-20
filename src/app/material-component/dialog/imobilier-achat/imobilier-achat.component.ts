@@ -1,3 +1,4 @@
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ShowImoImagesComponent } from './../../../show-imo-images/show-imo-images.component';
 import {Component, EventEmitter, Inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, NgForm, Validators} from "@angular/forms";
@@ -84,7 +85,8 @@ export class ImobilierAchatComponent implements OnInit {
               private snackbar: SnackbarService,
               private dashService:DashboardService,
               private sanitizer:DomSanitizer,
-              private imagesdialog:MatDialog) { }
+              private imagesdialog:MatDialog,
+              private spinner:NgxSpinnerService) { }
 
   ngOnInit(): void {
     if (this.dialogData.action === 'Edit') {
@@ -125,14 +127,21 @@ export class ImobilierAchatComponent implements OnInit {
 
 
    add(imageAchatForm:NgForm) {
-
+    this.spinner.show();
     const imoAchatFormData = this.prepareFormData(this.imoAchat);
     this.dashService.add(imoAchatFormData).subscribe((response:any)=>{
+      this.spinner.hide();
       this.dialogRef.close();
       this.onAddProduct.emit();
-      this.responseMessage = response.message;
+
+      if (this.dialogData.action=== 'Add') {
+        this.responseMessage = "Immobilier Added Successfully";
+      } else if (this.dialogData.action=== 'Edit') {
+        this.responseMessage = "Immobilier Updated Successfully";
+      }
       this.snackbar.openSnackbar(this.responseMessage, "Success");
     }, (error:any)=>{
+      this.spinner.hide();
       if(error.error?.message) {
         this.responseMessage = error.error?.message;
       } else {

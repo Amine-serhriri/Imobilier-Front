@@ -32,7 +32,7 @@
               <mat-card-header>
                 <div mat-card-avatar class="example-header-image"></div>
                 <mat-card-title>
-                  <a mat-button routerLink="/achatList" >
+                  <a routerLink="/achatList" >
                     Je souhaite Acheter</a
                   >
                 </mat-card-title>
@@ -62,7 +62,7 @@
       <mat-grid-tile
         ><mat-accordion style="margin-top: 40px"
           ><mat-expansion-panel
-            [expanded]="false"
+            [expanded]="true"
             (opened)="panelOpenState = true"
             (closed)="panelOpenState = false"
           >
@@ -74,7 +74,7 @@
             <mat-card class="example-card">
               <mat-card-header>
                 <div mat-card-avatar class="example-header-image"></div>
-                <mat-card-title>Je souhaite Louer</mat-card-title>
+                <mat-card-title><a routerLink="">Je souhaite Louer</a></mat-card-title>
                 <mat-card-subtitle
                   >Des conseillers à vos côtés pour votre recherche de
                   location</mat-card-subtitle

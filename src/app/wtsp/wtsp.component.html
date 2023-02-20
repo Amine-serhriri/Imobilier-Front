@@ -15,11 +15,22 @@
     <div fxFlex fxLayout="column">
       <mat-label>
         <strong style="text-align: center"> Notre service conseil est là pour vous aider, posez-nous vos questions !</strong></mat-label>
-      <mat-form-field appearance="standard">
 
-        <input matInput formControlName="message" required placeholder="Votre message">
-        <mat-error *ngIf="formErrors['message']">{{formErrors['message']}}</mat-error>
-      </mat-form-field>
+      <div class="card" style="margin-left: 100px;">
+        <div class="chat-header">Chat</div>
+          <div class="chat-window">
+            <ul class="message-list"></ul>
+          </div>
+
+          <mat-form-field appearance="standard">
+            <div class="chat-input">
+            <input matInput formControlName="message"class="message-input" required placeholder="Votre message"><br>
+            <mat-error *ngIf="formErrors['message']">{{formErrors['message']}}</mat-error>
+            </div>
+          </mat-form-field>
+
+        </div>
+
 
     </div>
   </form>

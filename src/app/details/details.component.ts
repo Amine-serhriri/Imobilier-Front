@@ -9,7 +9,8 @@ import {AchatDetail} from "../Model/achatDetails";
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css']
 })
-export class DetailsComponent implements OnInit {
+export class 
+DetailsComponent implements OnInit {
   immobilier!:any
   achatDetail!:AchatDetail
   datasource!:any

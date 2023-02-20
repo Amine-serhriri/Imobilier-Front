@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./achat-details.component.css']
 })
 export class AchatDetailsComponent implements OnInit {
-
+  message="ACHETER UN APPARTEMENT OU UNE VILLA"
   achat!:Imobiler;
   selectedAchatIndex=0
   constructor(private activatedRoute:ActivatedRoute) { }

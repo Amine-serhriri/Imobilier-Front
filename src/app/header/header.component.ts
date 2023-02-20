@@ -12,6 +12,7 @@ import {WtspComponent} from "../wtsp/wtsp.component";
 })
 export class HeaderComponent implements OnInit {
 
+  message=""
   constructor(public dialog:MatDialog,
               private userService:UserService,
               private router:Router) { }

@@ -20,6 +20,7 @@ export class SnackbarService {
         panelClass: ['error']
       });
     } else {
+      console.log('success')
       this.snackbar.open(message, '', {
         horizontalPosition: 'center',
         verticalPosition: 'top',
