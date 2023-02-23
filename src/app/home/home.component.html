@@ -19,7 +19,7 @@
   <div style="margin-top: 20px" class="container">
     <mat-grid-list style="margin-top: 20px" cols="2" rowHeight="1:1">
       <mat-grid-tile
-        ><mat-accordion style="margin-top: 40px">
+        ><mat-accordion style="margin-top: 100px">
           <mat-expansion-panel
             [expanded]="true"
             (opened)="panelOpenState = true"
@@ -60,7 +60,7 @@
         </mat-accordion></mat-grid-tile
       >
       <mat-grid-tile
-        ><mat-accordion style="margin-top: 40px"
+        ><mat-accordion style="margin-top: 100px"
           ><mat-expansion-panel
             [expanded]="true"
             (opened)="panelOpenState = true"
@@ -113,7 +113,7 @@
         </p>
       </div>
       <ng-container>
-        <mat-grid-list cols="3" rowHeight="800px">
+        <mat-grid-list class="grid" cols="3" rowHeight="800px">
           <mat-grid-tile>
             <mat-card class="example-card">
               <mat-card-header>

@@ -7,6 +7,11 @@ $background-pale: #D1C4E9;
   margin: 0px auto;
   padding: $pad-up-down $pad-left-right;
 }
+.grid-container{
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
+}
 .achat{
   font-size: 30px;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
