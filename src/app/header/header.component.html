@@ -1,5 +1,23 @@
-<mat-toolbar class="grid-container" color="primary" xmlns:C="http://www.w3.org/1999/xhtml">
-  <a mat-button routerLinkActive="active" routerLink="../home"
+<mat-toolbar style="height: 80px; background-color: #063930; color: white;" class="grid-container" color="none" xmlns:C="http://www.w3.org/1999/xhtml">
+  <span><img src="../../assets/images/logo.jpeg" height=80 width=150></span>
+
+
+  <a mat-button routerLinkActive="active" routerLink="/achatList"
+    ><mat-icon> location_on</mat-icon> Cafe Forest
+  </a>
+  <a  mat-button routerLinkActive="active"
+  ><mat-icon> phone</mat-icon>+212613246330</a
+>
+
+
+  <a mat-button routerLinkActive="active" routerLink="/about"
+    >	<mat-icon>access_time</mat-icon>
+    De 10:00 à 20:00
+    Toutes la semaine
+  </a>
+</mat-toolbar>
+<mat-toolbar class="grid-container" color="none" xmlns:C="http://www.w3.org/1999/xhtml">
+  <a style="background-color: #063930; color: white;" mat-button  routerLink="../home"
     ><span class="fa fa-home fa-lg"></span> Home</a
   >
   <a mat-button routerLinkActive="active" routerLink="/about"

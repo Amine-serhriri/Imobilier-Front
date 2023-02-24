@@ -2,10 +2,13 @@
   border: 1px solid lightgray ;
   border-radius: 5px;
   height: 450px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 
 }
 .mat-grid-tile ng-star-inserted{
-  width: 300px;
+  width: 350px;
+
 }
 
 .home-page-achat-image{
@@ -22,5 +25,5 @@
   cursor: pointer;
 }
 .p{
-  margin: auto;
+  margin-left: 20px;
 }
