@@ -20,6 +20,10 @@ export class DashboardService {
     let host = environment.unreachableHost;
     return this.http.get<Imobiler[]>(host+"/imoAchat/achat");
   }
+  getLocation():Observable<Imobiler[]> {
+    let host = environment.unreachableHost;
+    return this.http.get<Imobiler[]>(host+"/imoAchat/location");
+  }
 
 
   deleteAchat(id: any) {
@@ -36,6 +40,11 @@ export class DashboardService {
     let host = environment.unreachableHost;
     return this.http.post<Imobiler>(host+
       "/imoAchat/addAchat", data)
+  }
+  addLocation(data:FormData){
+    let host = environment.unreachableHost;
+    return this.http.post<Imobiler>(host+
+      "/imoAchat/addLocation", data)
   }
 
 

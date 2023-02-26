@@ -14,6 +14,7 @@ import { ConfirmationComponent } from './dialog/confirmation/confirmation.compon
 import { ChangePasswordComponent } from './dialog/change-password/change-password.component';
 import { ImobilierAchatComponent } from './dialog/imobilier-achat/imobilier-achat.component';
 import { DragDirective } from '../directives/drag.directive';
+import { ImobilierLocationComponent } from './dialog/imobilier-location/imobilier-location.component';
 
 
 
@@ -35,7 +36,8 @@ import { DragDirective } from '../directives/drag.directive';
     ConfirmationComponent,
     ChangePasswordComponent,
     ImobilierAchatComponent,
-    DragDirective
+    DragDirective,
+    ImobilierLocationComponent
 
   ]
 })

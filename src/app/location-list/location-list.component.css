@@ -1,0 +1,29 @@
+.mat-grid-tile{
+  border: 1px solid lightgray ;
+  border-radius: 5px;
+  height: 450px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+
+}
+.mat-grid-tile ng-star-inserted{
+  width: 350px;
+
+}
+
+.home-page-achat-image{
+  max-width: 80%;
+  max-height: 80%;
+
+
+
+
+}
+.image-container{
+  position: relative;
+  height: 200px;
+  cursor: pointer;
+}
+.p{
+  margin-left: 20px;
+}

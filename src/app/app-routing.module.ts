@@ -1,3 +1,6 @@
+import { VenteComponent } from './vente/vente.component';
+import { AdminLocationComponent } from './admin-location/admin-location.component';
+import { LocationListComponent } from './location-list/location-list.component';
 import { AchatDetailsComponent } from './achat-details/achat-details.component';
 import { TestComponent } from './test/test.component';
 import { AchatListComponent } from './achat-list/achat-list.component';
@@ -20,8 +23,11 @@ const routes: Routes = [
   {path:"detail/:id",component:DetailsComponent},
   {path:"test",component:TestComponent},
   {path:"login",component:LoginComponent},
+  {path:"vente",component:VenteComponent},
   {path:"achatList",component:AchatListComponent},
+  {path:"locationList",component:LocationListComponent},
   {path:"achatDetails/:id",component:AchatDetailsComponent, resolve: {imoAchat:ImoAchatResolveService}},
+  {path:"cafe/location",component:AdminLocationComponent, resolve: {imoAchat:ImoAchatResolveService}},
   {path:"",redirectTo:"/home",pathMatch:'full'},
   {
     path: 'cafe',
@@ -51,6 +57,18 @@ const routes: Routes = [
       },
       {
         path: 'Achat',
+        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+        component:AdminLocationComponent,
+        canActivate: [RouteGuardService],
+        data: {
+          expectedRole: ['admin', 'user']
+        },
+        resolve: {
+          imoAchat:ImoAchatResolveService
+        }
+      },
+      {
+        path: 'location',
         loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
         canActivate: [RouteGuardService],
         data: {

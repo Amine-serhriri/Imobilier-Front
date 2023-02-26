@@ -1,0 +1,19 @@
+.float-right {
+  float: right;
+}
+
+mat-card {
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+
+}
+
+.mat-column-description{
+  width: 30% !important;
+}
+ table td{
+  padding: 10px;
+ }

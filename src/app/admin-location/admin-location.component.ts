@@ -1,3 +1,4 @@
+import { ImobilierLocationComponent } from './../material-component/dialog/imobilier-location/imobilier-location.component';
 import { ImagesProcessingService } from './../services/images-processing.service';
 import { map } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
@@ -15,13 +16,12 @@ import {ImageComponent} from "../image/image.component";
 import {DatasharingService} from "../services/datasharing.service";
 import { Imobiler } from '../Model/Imobiler';
 import { ShowImoImagesComponent } from '../show-imo-images/show-imo-images.component';
-
 @Component({
-  selector: 'app-admin-home',
-  templateUrl: './admin-home.component.html',
-  styleUrls: ['./admin-home.component.css']
+  selector: 'app-admin-location',
+  templateUrl: './admin-location.component.html',
+  styleUrls: ['./admin-location.component.css']
 })
-export class AdminHomeComponent implements OnInit {
+export class AdminLocationComponent implements OnInit {
   displayedColumns: string[] = ['title', 'adresse', 'description', 'price', 'surface', 'rooms', 'available', 'type','edit','images'];
   dataSource: any;
   responseMessage: any;
@@ -43,7 +43,7 @@ export class AdminHomeComponent implements OnInit {
   }
 
   tableData() {
-    this.dashbordService.getAchat()
+    this.dashbordService.getLocation()
     .pipe(
       map((x:Imobiler[], i) => x.map((imobilier:Imobiler) => this.imagesService.createImages(imobilier)))
     )
@@ -76,7 +76,7 @@ export class AdminHomeComponent implements OnInit {
       action: 'Add'
     }
     dialogConf.width = "1500px";
-    const dialogRef = this.dialog.open(ImobilierAchatComponent, dialogConf);
+    const dialogRef = this.dialog.open(ImobilierLocationComponent, dialogConf);
     this.router.events.subscribe(() => {
       dialogRef.close();
     });
@@ -96,7 +96,7 @@ export class AdminHomeComponent implements OnInit {
     console.log(dialogConf.data.action)
     console.log(dialogConf.data.data)
     dialogConf.width = "1500px";
-    const dialogRef = this.dialog.open(ImobilierAchatComponent, dialogConf);
+    const dialogRef = this.dialog.open(ImobilierLocationComponent, dialogConf);
     this.router.events.subscribe(() => {
       dialogRef.close();
     });

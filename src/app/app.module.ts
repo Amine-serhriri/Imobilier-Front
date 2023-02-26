@@ -49,6 +49,9 @@ import { ShowImoImagesComponent } from './show-imo-images/show-imo-images.compon
 import { AchatListComponent } from './achat-list/achat-list.component';
 import { TestComponent } from './test/test.component';
 import { AchatDetailsComponent } from './achat-details/achat-details.component';
+import { LocationListComponent } from './location-list/location-list.component';
+import { AdminLocationComponent } from './admin-location/admin-location.component';
+import { VenteComponent } from './vente/vente.component';
 
 
 @NgModule({
@@ -73,6 +76,9 @@ import { AchatDetailsComponent } from './achat-details/achat-details.component';
     AchatListComponent,
     TestComponent,
     AchatDetailsComponent,
+    LocationListComponent,
+    AdminLocationComponent,
+    VenteComponent,
 
 
   ],

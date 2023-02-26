@@ -1,0 +1,30 @@
+body {
+  color: black;
+}
+
+h2 {
+  box-sizing: border-box;
+  font-family: Roboto;
+  font-weight: 500;
+  text-transform: inherit;
+  font-size: 1.75rem;
+  margin-top: 20px;
+}
+
+.mat-grid-tile{
+  margin-top: -30px;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+td {
+  padding-right: 8px;
+}
+
