@@ -88,7 +88,7 @@ export class LoginComponent implements OnInit {
       console.log("2")
       this.router.navigate(['/cafe/dashboard']);
     }, (error)=>{
-
+      this.spinner.hide();
       console.log("error")
       if (error.error?.message) {
         this.responseMessage = error.error?.message;

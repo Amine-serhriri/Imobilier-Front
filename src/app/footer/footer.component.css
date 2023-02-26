@@ -1,6 +1,6 @@
 .footer {
-  background-color: #D1C4E9;
-
+  background-color: #063930;
+  color: white;
   margin-top: 70px;
   padding: 20px 0px;
 }
@@ -27,4 +27,7 @@
 .btn-mail {
   color: #fff !important;
   background-color: #512DA8 !important;
+}
+.a{
+  color: white;
 }

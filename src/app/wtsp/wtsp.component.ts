@@ -72,7 +72,7 @@ export class WtspComponent implements OnInit {
       message : formData.message
     }
 
-    this.document.location.href = 'https://web.whatsapp.com/send?phone=+212661973770&text='+data.message;
+    this.document.location.href = 'https://web.whatsapp.com/send?phone=+212681015181&text='+data.message;
     this.dialogRef.close();
 
   }
