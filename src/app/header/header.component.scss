@@ -10,6 +10,7 @@ $background-pale: #D1C4E9;
 .container{
   margin-left: 0px;
   margin-right: 0px;
+  max-width: 1500px;
 }
 .grid-container{
   display: grid;
@@ -28,8 +29,8 @@ $background-pale: #D1C4E9;
 .jumbotron {
   @include zero-margin(70px,30px);
   color:floralwhite;
-  min-height: 800px;
-  background-image: url("../../assets/images/jordi.jpg");
+  min-height: 700px;
+  background-image: url("../../assets/mkks.png");
   background-size: cover;
   background-repeat: no-repeat;
 
