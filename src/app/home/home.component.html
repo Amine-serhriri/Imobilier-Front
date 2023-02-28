@@ -6,8 +6,8 @@
       <strong>Nous offrons les meilleures offres immobilières</strong>
     </h1>
   </div>
-  <div style="text-align: center">
-    <p>
+  <div style="text-align: center; margin-bottom: 30px;">
+    <p >
       Regardez nos derniers biens immobiliers puis vérifient les installations
       sur laquelles, Nous avons déjà vendu plus de 5000 maisons et nous sommes
       toujours en <br />
@@ -16,9 +16,9 @@
     </p>
   </div>
 
-  <div style="margin-top: 20px" class="container">
-    <mat-grid-list style="margin-top: 20px" cols="2" rowHeight="1:1">
-      <mat-grid-tile
+  <div style="margin-top: -20px" class="container">
+    <mat-grid-list  cols="2" rowHeight="1:1">
+      <mat-grid-tile style="height: 400px;"
         ><mat-accordion style="margin-top: 100px">
           <mat-expansion-panel
             [expanded]="true"
@@ -37,29 +37,24 @@
                   >
                 </mat-card-title>
                 <mat-card-subtitle
-                  >Vous recherchez un appartement ou une maison à vendre
+                  >Vous recherchez un appartement ou une maison à acheter
                   ?</mat-card-subtitle
                 >
               </mat-card-header>
               <img
                 routerLink="achatList"
-                mat-card-image
-                src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                mat-card-image height="220" width="287"
+                src="https://cdn.pixabay.com/photo/2017/10/12/17/42/house-for-sale-2845213__340.jpg"
                 alt="Photo of a Shiba Inu"
               />
               <mat-card-content>
-                <p>
-                  Chaque professionnel de CENTURY 21® met à votre disposition
-                  son savoir-faire et sa connaissance du marché immobilier pour
-                  vous assister au mieux dans la réalisation de ce nouveau
-                  projet de vie.
-                </p>
+
               </mat-card-content>
             </mat-card>
           </mat-expansion-panel>
         </mat-accordion></mat-grid-tile
       >
-      <mat-grid-tile
+      <mat-grid-tile style="height: 400px;"
         ><mat-accordion style="margin-top: 100px"
           ><mat-expansion-panel
             [expanded]="true"
@@ -74,25 +69,19 @@
             <mat-card class="example-card">
               <mat-card-header>
                 <div mat-card-avatar class="example-header-image"></div>
-                <mat-card-title><a routerLink="/locationList">Je souhaite Louer</a></mat-card-title>
+                <mat-card-title ><a routerLink="/locationList">Je souhaite Louer</a></mat-card-title>
                 <mat-card-subtitle
                   >Des conseillers à vos côtés pour votre recherche de
                   location</mat-card-subtitle
                 >
               </mat-card-header>
               <img routerLink="/locationList"
-                mat-card-image
-                src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                mat-card-image height="220" width="287"
+                src="https://cdn.pixabay.com/photo/2016/05/21/21/52/house-1407562__340.jpg"
                 alt="Photo of a Shiba Inu"
               />
               <mat-card-content>
-                <p>
-                  Réussir la location d’un bien nécessite une véritable
-                  connaissance du marché immobilier local. En passant par
-                  l’agence Century 21 Casablanca vous aurez la garantie de louer
-                  un appartement ou une villa au Maroc conformément à vos
-                  besoins dans les meilleurs délais.
-                </p>
+
               </mat-card-content>
             </mat-card>
           </mat-expansion-panel>
@@ -103,7 +92,7 @@
     <div>
       <div>
         <hr />
-        <h1 class="mat-h1" style="text-align: center; margin-top: 20px">
+        <h1 class="mat-h1" style="text-align: center; margin-top: 50px">
           <strong>Notre Equipe</strong>
         </h1>
       </div>
@@ -113,7 +102,7 @@
         </p>
       </div>
       <ng-container>
-        <mat-grid-list class="grid" cols="3" rowHeight="800px">
+        <mat-grid-list class="grid" cols="3" rowHeight="700px">
           <mat-grid-tile>
             <mat-card class="example-card">
               <mat-card-header>

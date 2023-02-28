@@ -16,7 +16,7 @@
         de gestion de vente immobilière.
       </p>
       <div class="col-md-6">
-        <form action="#" method="post">
+        <form  [formGroup]="venteForm">
           <div class="mb-3">
             <div class="row">
               <div class="col-6">
@@ -81,8 +81,8 @@
                 >
                 <br />
                 <mat-form-field appearance="fill">
-                  <mat-label>Select your car</mat-label>
-                  <mat-select>
+                  <mat-label>Select your state</mat-label>
+                  <mat-select formControlName="state" >
                     <mat-option value="I'm a property owner">
                       I'm a property owner
                     </mat-option>
@@ -99,7 +99,7 @@
                 <br />
                 <mat-form-field appearance="fill">
                   <mat-label>Select your Property</mat-label>
-                  <mat-select>
+                  <mat-select formControlName="property">
                     <mat-option value="Maison"> Maison </mat-option>
                     <mat-option value="Villa"> Villa </mat-option>
                     <mat-option value="Bureau"> Bureau </mat-option>
@@ -124,7 +124,7 @@
             <label style="color: black" for="message" class="form-label"
               ><strong>Message</strong></label
             >
-            <textarea
+            <textarea formControlName="message"
               class="form-control"
               id="message"
               name="message"
@@ -133,7 +133,9 @@
             ></textarea>
           </div>
           <div class="text-center">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button mat-raised-button color="primary" type="submit" (click)="handelSubmit()" >
+              <mat-icon>send</mat-icon>Send message
+            </button>
           </div>
         </form>
       </div>
