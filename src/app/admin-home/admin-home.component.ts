@@ -22,7 +22,7 @@ import { ShowImoImagesComponent } from '../show-imo-images/show-imo-images.compo
   styleUrls: ['./admin-home.component.css']
 })
 export class AdminHomeComponent implements OnInit {
-  displayedColumns: string[] = ['title', 'adresse', 'description', 'price', 'surface', 'rooms', 'available', 'type','edit','images'];
+  displayedColumns: string[] = ['title', 'adresse', 'description', 'price', 'surface', 'rooms', 'type','edit','images'];
   dataSource: any;
   responseMessage: any;
 
