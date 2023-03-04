@@ -7,12 +7,22 @@ import { DashboardService } from './../services/dashboard.service';
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs';
 import { Router } from '@angular/router';
+import { flyInOut, expand } from '../animation/animation';
 
 
 @Component({
   selector: 'app-achat-list',
   templateUrl: './achat-list.component.html',
-  styleUrls: ['./achat-list.component.css']
+  styleUrls: ['./achat-list.component.css'],
+
+host: {
+    '[@flyInOut]': 'true',
+    'style': 'display: block;'
+    },
+    animations: [
+      flyInOut(),
+      expand()
+    ]
 })
 export class AchatListComponent implements OnInit {
 

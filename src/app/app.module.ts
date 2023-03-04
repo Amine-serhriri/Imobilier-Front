@@ -52,6 +52,7 @@ import { AchatDetailsComponent } from './achat-details/achat-details.component';
 import { LocationListComponent } from './location-list/location-list.component';
 import { AdminLocationComponent } from './admin-location/admin-location.component';
 import { VenteComponent } from './vente/vente.component';
+import { HighlightDirectiveDirective } from './directives/highlight-directive.directive';
 
 
 @NgModule({
@@ -79,6 +80,7 @@ import { VenteComponent } from './vente/vente.component';
     LocationListComponent,
     AdminLocationComponent,
     VenteComponent,
+    HighlightDirectiveDirective,
 
 
   ],

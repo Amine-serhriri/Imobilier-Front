@@ -1,12 +1,12 @@
 <app-header1></app-header1>
 
-<div  class=" mt-5" style="margin-bottom: 10px;">
+<div  class=" mt-5 bottom" style="margin-bottom: 10px;">
  <hr>
  <span >
   <h1 class="mat-h1" style="text-align: center; margin-top: 20px">NOUVEAUTÉS À LOUER</h1>
   </span>
-  <mat-grid-list class="grid-container " cols="4" rowHeight="2:3" gutterSize="10">
-    <mat-grid-tile   *ngFor="let achat of dataSource" >
+  <mat-grid-list class="grid-container " cols="4" rowHeight="2:3" gutterSize="10" [@expand]>
+    <mat-grid-tile [routerLink]="['/achatDetails/', achat.id]" appHighlightDirective  [@expand] *ngFor="let achat of dataSource" >
       <div class="row mt-5 p-5 m-lg-3">
         <p style="margin-left: 20px;"  ><mat-icon> location_on</mat-icon>{{achat.adresse}}</p>
         <div class="image-container">
