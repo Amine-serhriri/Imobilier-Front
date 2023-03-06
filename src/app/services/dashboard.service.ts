@@ -30,9 +30,9 @@ export class DashboardService {
     let host = environment.unreachableHost;
     return this.http.get(host+"/imoAchat/delete/"+id)
   }
-  updateStatus(data: any) {
+    updateStatus(data: any) {
     let host = environment.unreachableHost;
-    return this.http.post(host + '/imobilier/updateStatus', data, {
+    return this.http.post(host + '/imoAchat/updateStatus', data, {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),
     });
   }

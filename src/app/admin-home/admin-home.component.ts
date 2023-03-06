@@ -138,11 +138,12 @@ export class AdminHomeComponent implements OnInit {
   }
 
   onChange(status:boolean, id:any){
+    console.log(id+"id", status+"status")
     var data={
       available:status.toString(),
       id:id
     }
-    console.log(data);
+    console.log(data.available+"data change");
     this.dashbordService.updateStatus(data).subscribe((response:any)=>{
       this.ngxService.hide();
       this.responseMessage = response?.message;
