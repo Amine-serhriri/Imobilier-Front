@@ -43,7 +43,7 @@ export class AdminHomeComponent implements OnInit {
   }
 
   tableData() {
-    this.dashbordService.getAchat()
+    this.dashbordService.getAchatAdmin()
     .pipe(
       map((x:Imobiler[], i) => x.map((imobilier:Imobiler) => this.imagesService.createImages(imobilier)))
     )
