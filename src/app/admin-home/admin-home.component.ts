@@ -41,10 +41,8 @@ export class AdminHomeComponent implements OnInit, AfterViewInit {
               private imagesService:ImagesProcessingService) {
   }
   ngAfterViewInit(): void {
-      this.paginator.page
-      .pipe(
-        tap(()=>this.tableData())
-      ).subscribe();
+    this.dataSource.paginator=this.paginator;
+
   }
 
   ngOnInit(): void {
