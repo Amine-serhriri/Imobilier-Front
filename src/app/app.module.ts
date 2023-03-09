@@ -53,7 +53,7 @@ import { LocationListComponent } from './location-list/location-list.component';
 import { AdminLocationComponent } from './admin-location/admin-location.component';
 import { VenteComponent } from './vente/vente.component';
 import { HighlightDirectiveDirective } from './directives/highlight-directive.directive';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -115,7 +115,8 @@ import { HighlightDirectiveDirective } from './directives/highlight-directive.di
         MatBadgeModule,
         NgxPaginationModule,
         NgxSpinnerModule,
-        MatExpansionModule
+        MatExpansionModule,
+        MatPaginatorModule
 
 
     ],

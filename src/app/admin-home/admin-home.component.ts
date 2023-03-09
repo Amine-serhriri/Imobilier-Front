@@ -1,6 +1,6 @@
 import { ImagesProcessingService } from './../services/images-processing.service';
-import { map } from 'rxjs/operators';
-import { Component, OnInit } from '@angular/core';
+import { map, tap } from 'rxjs/operators';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import {DashboardService} from "../services/dashboard.service";
 import {NgxSpinnerService} from "ngx-spinner";
 import {SnackbarService} from "../services/snackbar.service";
@@ -15,16 +15,20 @@ import {ImageComponent} from "../image/image.component";
 import {DatasharingService} from "../services/datasharing.service";
 import { Imobiler } from '../Model/Imobiler';
 import { ShowImoImagesComponent } from '../show-imo-images/show-imo-images.component';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-admin-home',
   templateUrl: './admin-home.component.html',
   styleUrls: ['./admin-home.component.css']
 })
-export class AdminHomeComponent implements OnInit {
+export class AdminHomeComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['title', 'adresse', 'description', 'price', 'surface', 'rooms', 'type','edit','images'];
   dataSource: any;
   responseMessage: any;
+
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
 
 
   constructor(private dialog: MatDialog,
@@ -35,6 +39,12 @@ export class AdminHomeComponent implements OnInit {
               private datasharing:DatasharingService,
               private imagesdialog:MatDialog,
               private imagesService:ImagesProcessingService) {
+  }
+  ngAfterViewInit(): void {
+      this.paginator.page
+      .pipe(
+        tap(()=>this.tableData())
+      ).subscribe();
   }
 
   ngOnInit(): void {
