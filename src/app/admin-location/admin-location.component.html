@@ -90,5 +90,7 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></tr>
     <tr mat-row *matRowDef="let row; columns:displayedColumns"></tr>
   </table>
+  <mat-paginator aria-label="select-page" #paginator [pageSizeOptions]="[2, 4, 6, 10]" [pageSize]="2" [length]="dataSource.data.length"></mat-paginator>
+
 </div>
 <!-- [ngStyle]="{'color':element.status === 'true' ? 'green' : 'red' }" -->

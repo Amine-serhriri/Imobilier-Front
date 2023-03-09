@@ -1,7 +1,8 @@
+import { MatPaginator } from '@angular/material/paginator';
 import { ImobilierLocationComponent } from './../material-component/dialog/imobilier-location/imobilier-location.component';
 import { ImagesProcessingService } from './../services/images-processing.service';
 import { map } from 'rxjs/operators';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import {DashboardService} from "../services/dashboard.service";
 import {NgxSpinnerService} from "ngx-spinner";
 import {SnackbarService} from "../services/snackbar.service";
@@ -21,11 +22,13 @@ import { ShowImoImagesComponent } from '../show-imo-images/show-imo-images.compo
   templateUrl: './admin-location.component.html',
   styleUrls: ['./admin-location.component.css']
 })
-export class AdminLocationComponent implements OnInit {
+export class AdminLocationComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['title', 'adresse', 'description', 'price', 'surface', 'rooms', 'type','edit','images'];
   dataSource: any;
   responseMessage: any;
 
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
 
   constructor(private dialog: MatDialog,
               private dashbordService: DashboardService,
@@ -40,6 +43,11 @@ export class AdminLocationComponent implements OnInit {
   ngOnInit(): void {
     this.ngxService.show();
     this.tableData();
+  }
+
+    ngAfterViewInit(): void {
+    this.dataSource.paginator=this.paginator;
+
   }
 
   tableData() {
