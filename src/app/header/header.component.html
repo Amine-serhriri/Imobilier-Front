@@ -1,24 +1,41 @@
-<mat-toolbar style="height: 80px; background-color: #063930; color: white;" class="grid-container" color="none" xmlns:C="http://www.w3.org/1999/xhtml">
-  <span><img src="../../assets/images/logo.jpeg" height=80 width=150></span>
+<mat-toolbar
+  style="height: 80px; background-color: #063930; color: white"
+  class="grid-container"
+  color="none"
+  xmlns:C="http://www.w3.org/1999/xhtml"
+>
+  <span
+    ><img src="../../assets/images/logo.jpeg" height="80" width="150"
+  /></span>
 
-
-  <a mat-button routerLinkActive="active" routerLink="/achatList"
+  <a
+    mat-button
+    routerLinkActive="active"
+    href="https://www.google.fr/maps/place/FOREST+PALACE+%D9%81%D9%88%D8%B1%D8%B3%D8%AA+%D8%A8%D9%84%D8%A7%D8%B5%E2%80%AD/@33.8538288,-5.5700672,17z/data=!3m1!4b1!4m6!3m5!1s0xda05aa94216029f:0x673ff48f8d877cc1!8m2!3d33.8538288!4d-5.5678785!16s%2Fg%2F11c71981bw"
     ><mat-icon> location_on</mat-icon> Cafe Forest
   </a>
-  <a  mat-button routerLinkActive="active"
-  ><mat-icon> phone</mat-icon>+212613246330</a
->
+  <a mat-button routerLinkActive="active"
+    ><mat-icon> phone</mat-icon>+212613246330</a
+  >
 
-
-  <a style="margin-top: 5px;" mat-button routerLinkActive="active" routerLink="/about"
-    >	<mat-icon>access_time</mat-icon>
-    <a mat-button routerLinkActive="active" routerLink="/about"
-    >
-    De 10:00 à 20:00<br>
-    <p style="margin-top: -10px;"> Toutes la semaine</p>
-  </a> </a>
+  <a
+    style="margin-top: 5px"
+    mat-button
+    routerLinkActive="active"
+    routerLink="/about"
+  >
+    <mat-icon>access_time</mat-icon>
+    <a mat-button routerLinkActive="active" routerLink="/contactus">
+      De 10:00 à 20:00<br />
+      <p style="margin-top: -10px">Toutes la semaine</p>
+    </a>
+  </a>
 </mat-toolbar>
-<mat-toolbar class="grid-container" color="none" xmlns:C="http://www.w3.org/1999/xhtml">
+<mat-toolbar
+  class="grid-container"
+  color="none"
+  xmlns:C="http://www.w3.org/1999/xhtml"
+>
   <a mat-button routerLinkActive="active" routerLink="/home"
     ><span class="fa fa-home fa-lg"></span> Home
   </a>
@@ -45,7 +62,6 @@
   >
 </mat-toolbar>
 
-
 <div
   class="container jumbotron"
   fxLayout="row"
@@ -57,9 +73,7 @@
   fxLayoutGap="10px"
 >
   <div class="mb-5" fxFlex="50" fxFlex.gt-sm="50%">
-
-    <div style="margin-top: 300px;" class=" achat">
-
+    <div style="margin-top: 300px" class="achat">
       {{ message }} <i class="fa fa-hand-o-down" aria-hidden="true"></i>
     </div>
   </div>
