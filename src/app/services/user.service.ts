@@ -17,7 +17,7 @@ export class UserService {
   }
   forgotPassword(data: any) {
     let host=environment.unreachableHost
-    return this.http.post(host + '/user/forgotPassword', data, {
+    return this.http.post(host + '/user/forgetPassword', data, {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),
     });
   }

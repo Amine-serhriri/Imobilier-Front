@@ -1,8 +1,9 @@
+import { ForgetPasswordComponent } from './../forget-password/forget-password.component';
 import { Router } from '@angular/router';
 import { GlobalConstants } from './../shared/global-constants';
 import { SnackbarService } from './../services/snackbar.service';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MatDialogConfig, MatDialog } from '@angular/material/dialog';
 import { UserService } from './../services/user.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -35,6 +36,7 @@ export class LoginComponent implements OnInit {
               private userService:UserService,
               public dialogRef:MatDialogRef<LoginComponent>,
               private router:Router,
+              private dialog:MatDialog,
               private spinner:NgxSpinnerService,
               private snackBar:SnackbarService) { }
 
@@ -85,7 +87,8 @@ export class LoginComponent implements OnInit {
       this.dialogRef.close();
       console.log("1")
       localStorage.setItem('token', response.token);
-      console.log("2")
+      console.log("2"),
+      this.snackBar.openSnackbar("Bonjour Mr.Amine :) On vous souhaite une bonne journée !", "Success");
       this.router.navigate(['/cafe/dashboard']);
     }, (error)=>{
       this.spinner.hide();
@@ -98,6 +101,12 @@ export class LoginComponent implements OnInit {
       this.snackBar.openSnackbar(this.responseMessage, GlobalConstants.error)
       console.log(this.responseMessage, GlobalConstants.error);
     })
+  }
+
+  handelForgotPasswordAction() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.width = "550px";
+    this.dialog.open(ForgetPasswordComponent, dialogConfig);
   }
 
 }

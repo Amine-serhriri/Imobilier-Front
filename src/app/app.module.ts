@@ -54,6 +54,7 @@ import { AdminLocationComponent } from './admin-location/admin-location.componen
 import { VenteComponent } from './vente/vente.component';
 import { HighlightDirectiveDirective } from './directives/highlight-directive.directive';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 
 @NgModule({
   declarations: [
@@ -81,6 +82,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     AdminLocationComponent,
     VenteComponent,
     HighlightDirectiveDirective,
+    ForgetPasswordComponent,
 
 
   ],
