@@ -51,7 +51,7 @@ export class AdminLocationComponent implements OnInit, AfterViewInit {
   }
 
   tableData() {
-    this.dashbordService.getLocation()
+    this.dashbordService.getLocationAdmin()
     .pipe(
       map((x:Imobiler[], i) => x.map((imobilier:Imobiler) => this.imagesService.createImages(imobilier)))
     )

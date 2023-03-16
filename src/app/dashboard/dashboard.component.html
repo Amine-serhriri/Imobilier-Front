@@ -7,15 +7,15 @@
   <div class="column">
     <div class="card">
       <div class="containerr">
-        <h2 class="title">Total Category:</h2>
+        <h2 class="title">Total Achat:</h2>
         <h1 class="title">
-         3<span style="margin-left: 10px" class="float-right"
+          {{nbrA}}<span style="margin-left: 10px" class="float-right"
         ><mat-icon>toc</mat-icon></span
         >
         </h1>
         <p>
-          <button class="button" routerLink="['/cafe/category']">
-            View Category
+          <button class="button" [routerLink]="['/cafe/Achat']" >
+            View Achat
           </button>
         </p>
       </div>
@@ -24,15 +24,15 @@
   <div class="column">
     <div class="card">
       <div class="containerr">
-        <h2 class="title">Total Product:</h2>
+        <h2 class="title">Total Location:</h2>
         <h1 class="title">
-          7<span style="margin-left: 10px" class="float-right"
+          {{nbrL}}<span style="margin-left: 10px" class="float-right"
         ><mat-icon>inventory_2</mat-icon></span
         >
         </h1>
         <p>
-          <button class="button" routerLink="['/cafe/product']">
-            View Product
+          <button class="button" [routerLink]="['/cafe/locationn']" >
+            View Location
           </button>
         </p>
       </div>
@@ -41,15 +41,15 @@
   <div class="column">
     <div class="card">
       <div class="containerr">
-        <h2 class="title">Total Bill:</h2>
+        <h2 class="title">Total Immobilier:</h2>
         <h1 class="title">
-          5<span style="margin-left: 10px" class="float-right"
+          {{nbrA+nbrL}}<span style="margin-left: 10px" class="float-right"
         ><mat-icon>shopping_basket</mat-icon></span
         >
         </h1>
         <p>
-          <button class="button" routerLink="['/cafe/bill']">
-            View Bill
+          <button class="button" routerLink="['/home']">
+            View Home
           </button>
         </p>
       </div>
