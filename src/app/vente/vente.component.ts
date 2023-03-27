@@ -69,7 +69,7 @@ export class VenteComponent implements OnInit {
   handelSubmit(){
     this.ngService.show();
     console.log(this.venteForm.value);
-    this.document.location.href = 'https://web.whatsapp.com/send?phone=+212634488400&text=Bonjour je suis'
-    +this.venteForm.value.state+" et j'ai un(e) "+this.venteForm.value.property+" mon message est: "+this.venteForm.value.message;
+    this.document.location.href = "https://web.whatsapp.com/send?phone=+212634488400&text=Hello, i'm a "
+    +this.venteForm.value.state+", and i have a  "+this.venteForm.value.property+". My message is : "+this.venteForm.value.message;
   }
 }

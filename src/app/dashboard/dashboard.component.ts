@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
   constructor(private DashboardService : DashboardService) { }
 
   ngOnInit(): void {
-    this.detailsAchat();
+    this.detailsAchat();  
     this.detailsLocation();
 
   }
